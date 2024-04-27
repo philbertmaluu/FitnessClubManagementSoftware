@@ -31,20 +31,30 @@ class RegisteredUserController extends Controller
     {
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
+            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:' . User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
+
         $user = User::create([
-            'name' => $request->name,
+            'username' => $request->name,
+            'role' => -1,
             'email' => $request->email,
+            'level_id' => -1,
+            'plan_id' => -1,
             'password' => Hash::make($request->password),
         ]);
-
         event(new Registered($user));
 
         Auth::login($user);
 
-        return redirect(route('dashboard', absolute: false));
+        if ($user->role == 2) {
+            return redirect()->route('trainee.home');
+        }
+
+        // Check user role and redirect accordingly
+        if ($user->role == 1) {
+            return redirect(route('dashboard', absolute: false));;
+        }
     }
 }
