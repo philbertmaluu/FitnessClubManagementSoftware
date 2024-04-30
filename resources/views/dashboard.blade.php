@@ -23,7 +23,7 @@
                             @auth
                             <h4>Hi, {{ Auth::user()->username }} welcome back!</h4>
                             @endauth
-                            <p class="mb-0">Your business dashboard template</p>
+                            <p class="mb-0">Manage your workout activities</p>
                         </div>
                     </div>
                     <!-- <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
