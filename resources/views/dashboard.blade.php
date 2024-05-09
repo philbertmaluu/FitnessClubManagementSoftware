@@ -42,7 +42,7 @@
                                 </div>
                                 <div class="stat-content d-inline-block">
                                     <div class="stat-text">Admin</div>
-                                    <div class="stat-digit">0</div>
+                                    <div class="stat-digit">2</div>
                                 </div>
                             </div>
                         </div>
@@ -55,7 +55,7 @@
                                 </div>
                                 <div class="stat-content d-inline-block">
                                     <div class="stat-text">Trainers</div>
-                                    <div class="stat-digit">0</div>
+                                    <div class="stat-digit">2</div>
                                 </div>
                             </div>
                         </div>
