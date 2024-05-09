@@ -7,8 +7,8 @@
                     </li> -->
             <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i class="ti-home"></i><span class="nav-text">Dashboard</span></a>
                 <ul aria-expanded="false">
-                    <li><a href="{{ url('/')}}">Dashboard</a></li>
-                    <li><a href="javascript:void()">Calendar</a></li>
+                    <li><a href="{{ route('dashboard')}}">Dashboard</a></li>
+                    <li><a href="{{ route('schedule_calendar')}}">Calendar</a></li>
                 </ul>
             </li>
 
@@ -17,7 +17,7 @@
             <li class="nav-label">Users management</li>
             <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i class="ti-user "></i><span class="nav-text">Administrators</span></a>
                 <ul aria-expanded="false">
-                    <li><a href="javascript:void()">Profile</a></li>
+                    <li><a href="{{  url('user/profile') }}">Profile</a></li>
                     <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">Email</a>
                         <ul aria-expanded="false">
                             <li><a href="javascript:void()">Compose</a></li>
@@ -43,7 +43,7 @@
             </li>
             <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i class="ti-face-smile "></i><span class="nav-text">Members</span></a>
                 <ul aria-expanded="false">
-                    <li><a href="javascript:void()">Profile</a></li>
+                    <li><a href="{{ url('user/profile')}}">Profile</a></li>
                     <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">Email</a>
                         <ul aria-expanded="false">
                             <li><a href="javascript:void()">Compose</a></li>

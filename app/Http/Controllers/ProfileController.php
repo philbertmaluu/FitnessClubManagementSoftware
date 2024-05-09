@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
+use App\Models\Plan;
 
 class ProfileController extends Controller
 {
@@ -26,8 +27,9 @@ class ProfileController extends Controller
 
     public function view()
     {
+        $plans = Plan::all();
 
-        return view('trainee.index');
+        return view('trainee.index', compact('plans'));
     }
 
     /**

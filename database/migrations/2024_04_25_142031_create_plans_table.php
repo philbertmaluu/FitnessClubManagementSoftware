@@ -18,8 +18,6 @@ return new class extends Migration
             $table->integer('price');
             $table->boolean('weight_lifting')->default(0);
             $table->boolean('anaerobic')->default(0);
-            $table->date('start_date');
-            $table->date('end_date');
             $table->timestamps();
         });
     }
