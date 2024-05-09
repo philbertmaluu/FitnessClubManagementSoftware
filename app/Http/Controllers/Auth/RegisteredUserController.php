@@ -53,8 +53,9 @@ class RegisteredUserController extends Controller
         }
 
         // Check user role and redirect accordingly
-        if ($user->role == 1) {
-            return redirect(route('dashboard', absolute: false));;
-        }
+        // if ($user->role == 1) {
+        return redirect(route('dashboard', absolute: false));;
+        //}
+
     }
 }

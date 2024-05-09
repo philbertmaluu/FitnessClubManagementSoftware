@@ -21,7 +21,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label><strong>Password</strong></label>
-                                            <input class="form-control" id="password" type="password" name="password" required autocomplete="current-password">
+                                            <input class="form-control" id="password" type="password" name="password" required autocomplete="current-password.">
                                             <x-input-error :messages="$errors->get('password')" class="mt-2" />
                                         </div>
                                         <div class="form-row d-flex justify-content-between mt-4 mb-2">

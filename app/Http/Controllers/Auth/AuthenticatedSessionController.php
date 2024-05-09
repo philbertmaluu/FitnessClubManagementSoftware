@@ -35,10 +35,7 @@ class AuthenticatedSessionController extends Controller
             return redirect()->route('trainee.home');
         }
 
-        // Check user role and redirect accordingly
-        if ($user->role == 1) {
-            return redirect()->route('dashboard', [], false);
-        }
+        return redirect()->route('dashboard', [], false);
     }
 
     /**
