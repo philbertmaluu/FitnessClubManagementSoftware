@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PlanContoller;
 use App\Http\Controllers\PlanController;
 use App\Http\Controllers\TraineeController;
+use App\Http\Controllers\TrainerController;
 
 Route::get('/', function () {
     return view('auth.login');
@@ -28,6 +29,10 @@ Route::put('pricing/plans', [PlanController::class, 'update'])->name('pricing.pl
 //-------------------trainee routes ----------------------//
 Route::get('/trainee/dashboard', [ProfileController::class, 'view'])->name('trainee.home');
 Route::get('/trainee/calendar/schedule', [TraineeController::class, 'schedule'])->name('schedule_calendar');
+
+
+//----------------trainer routes-----------------------//
+Route::get('/trainee/dashboard', [TrainerController::class, 'index'])->name('trainer.home');
 
 
 

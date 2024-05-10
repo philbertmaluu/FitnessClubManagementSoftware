@@ -34,6 +34,9 @@ class AuthenticatedSessionController extends Controller
         if ($user->role == 2) {
             return redirect()->route('trainee.home');
         }
+        if ($user->role == 3) {
+            return redirect()->route('trainer.home');
+        }
 
         return redirect()->route('dashboard');
 
