@@ -16,4 +16,9 @@
 
     <!-----------Sweet alert--------->
     <link href="{{ asset('group/vendor/sweetalert2/dist/sweetalert2.min.css') }}" rel="stylesheet">
+
+    <!-- Form step -->
+    <link href="{{ asset('group/vendor/jquery-steps/css/jquery.steps.css') }}" rel="stylesheet">
+    <!-------calender access link------->
+    <link href="{{ asset('group/vendor/fullcalendar/css/fullcalendar.min.css') }}" rel="stylesheet">
 </head>
