@@ -14,4 +14,8 @@ class plan extends Model
         'price',
         'desciption',
     ];
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 456ca52c7da472a2dcd94624ba0852765bdf12f8

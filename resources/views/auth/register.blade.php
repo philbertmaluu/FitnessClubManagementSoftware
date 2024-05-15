@@ -28,6 +28,11 @@
                                             <x-input-error :messages="$errors->get('password')" class="mt-2" />
                                         </div>
                                         <div class="form-group">
+                                            <label><strong>Register as</strong></label>
+
+
+                                        </div>
+                                        <div class="form-group">
                                             <label><strong>Confirm Password</strong></label>
                                             <input class="form-control" id="password_confirmation" type="password" name="password_confirmation" required autocomplete="new-password">
                                             <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />

@@ -14,6 +14,7 @@
 
 
         <!--Content body start-->
+<<<<<<< HEAD
     <div class="content-body">
 
 <div class="container-fluid">
@@ -93,6 +94,20 @@
         <!--Content body end-->
  
     </div><!--Main wrapper end-->
+=======
+
+
+
+
+        <!--Content body end-->
+
+
+
+
+
+    </div>
+    <!--Main wrapper end-->
+>>>>>>> 456ca52c7da472a2dcd94624ba0852765bdf12f8
 
     <!--Scripts-->
     @include('includes.auth.footer')
