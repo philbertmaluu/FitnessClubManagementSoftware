@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\notification;
 use Illuminate\Http\Request;
 use App\Models\User;
 
@@ -19,5 +20,14 @@ class TrainerController extends Controller
 
         //$messege = Notification::;
 
+    }
+
+    public function activation_request()
+    {
+        //$inactiveTrainers = User::where('role', 3)->get();
+        $inactiveTrainers = Notification::all();
+
+        dd();
+        return view('trainer.requests');
     }
 }
