@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class notification extends Model
 {
     use HasFactory;
+
+
+protected $fillable = [
+    'username',
+    'admin',
+];
 }
