@@ -1,22 +1,18 @@
 <?php
 
-<<<<<<< HEAD
+
 use App\Http\Controllers\NotificationController;
-=======
 use App\Http\Controllers\adminContoller;
->>>>>>> 456ca52c7da472a2dcd94624ba0852765bdf12f8
+use Illuminate\Http\Request;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PlanContoller;
 use App\Http\Controllers\PlanController;
-<<<<<<< HEAD
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\TrainerController;
 use App\Http\Controllers\TraineeController;
 
-=======
-use App\Http\Controllers\TraineeController;
-use App\Http\Controllers\TrainerController;
->>>>>>> 456ca52c7da472a2dcd94624ba0852765bdf12f8
+
 
 Route::get('/', function () {
     return view('auth.login');
@@ -33,7 +29,6 @@ Route::middleware('auth')->group(function () {
 
 //-------------------pricing  plan routes-------------------//
 Route::resource('pricing/plans', PlanController::class)->middleware(['auth']);
-<<<<<<< HEAD
 Route::post('pricing/plans', [PlanController::class, 'store'])->name('pricing.plans.store');
 Route::put('pricing/plans', [PlanController::class, 'update'])->name('pricing.plans.update');
 
@@ -49,21 +44,20 @@ Route::post('/trainer/activation', [NotificationController::class,'store'])->nam
 
 // ------------------notification route----------//
 // Route::post('/trainer/dashboard', [TrainerController::class,'store'])->name('');
-=======
+
+// ----------------pricing plans-----------//
 Route::post('pricing/plans', [PlanController::class, 'store'])->middleware(['auth', 'verified'])->name('pricing.plans.store');
 Route::put('pricing/plans', [PlanController::class, 'update'])->middleware(['auth', 'verified'])->name('pricing.plans.update');
 
 //-------------------trainee routes ----------------------//
 Route::get('/trainee/dashboard', [TraineeController::class, 'index'])->middleware(['auth', 'verified'])->name('trainee.home');
-Route::get('/trainee/calendar/schedule', [TraineeController::class, 'schedule'])->middleware(['auth', 'verified'])->name('schedule_calendar');
+Route::get('/trainee/calendar/schedule',[TraineeController::class, 'schedule'])->middleware(['auth', 'verified'])->name('schedule_calendar');
 
 
 //----------------trainer routes-----------------------//
 Route::get('/trainee/dashboard', [TrainerController::class, 'index'])->middleware(['auth', 'verified'])->name('trainer.home');
 Route::get('/trainee/activation/requests', [TrainerController::class, 'activation_request'])->middleware(['auth', 'verified'])->name('trainer.request');
 
-
->>>>>>> 456ca52c7da472a2dcd94624ba0852765bdf12f8
 
 
 

@@ -2,8 +2,7 @@
 
 namespace App\Http\Controllers;
 
-<<<<<<< HEAD
-=======
+use Illuminate\Http\Request;
 use App\Models\notification;
 >>>>>>> 456ca52c7da472a2dcd94624ba0852765bdf12f8
 use Illuminate\Http\Request;

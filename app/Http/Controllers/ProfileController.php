@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
 use App\Models\Plan;
+use App\Models\User;
 
 class ProfileController extends Controller
 {
@@ -25,15 +26,14 @@ class ProfileController extends Controller
         ]);
     }
 
-<<<<<<< HEAD
     public function view()
     {
         $plans = Plan::all();
 
         return view('trainee.index', compact('plans'));
     }
-=======
->>>>>>> 456ca52c7da472a2dcd94624ba0852765bdf12f8
+
+
 
     /**
      * Update the user's profile information.
