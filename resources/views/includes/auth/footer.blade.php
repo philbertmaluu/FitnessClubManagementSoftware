@@ -36,3 +36,31 @@
 
     <script src="{{ asset('group/vendor/fullcalendar/js/fullcalendar.min.js') }}"></script>
     <script src="{{ asset('group/js/plugins-init/fullcalendar-init.js') }}"></script>
+
+    <!-----datatable without export ------->
+    <script src="{{ asset('group/vendor/datatables/js/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('group/js/plugins-init/datatables.init.js') }}"></script>
+    <!---------data table implementation here----->
+
+    <!-- jquery vendor -->
+    <!-- <script src="{{ asset('group/assets/js/lib/jquery.min.js') }}"></script>
+    <script src="{{ asset('group/assets/js/lib/jquery.nanoscroller.min.js') }}"></script>
+     nano scroller -->
+    <!-- <script src="{{ asset('group/assets/js/lib/menubar/sidebar.js') }}"></script> -->
+    <!-- <script src="{{ asset('group/assets/js/lib/preloader/pace.min.js') }}"></script> -->
+    <!-- sidebar -->
+
+    <!-- bootstrap -->
+
+    <!-- <script src="{{ asset('group/assets/js/scripts.js') }}"></script> -->
+    <!-- scripit init-->
+    <!-- <script src="{{ asset('group/assets/js/lib/data-table/datatables.min.js') }}"></script> -->
+    <!-- <script src="{{ asset('group/assets/js/lib/data-table/buttons.dataTables.min.js') }}"></script> -->
+    <!-- <script src="{{ asset('group/assets/js/lib/data-table/dataTables.buttons.min.js') }}"></script> -->
+    <!-- <script src="{{ asset('group/assets/js/lib/data-table/buttons.flash.min.js') }}"></script> -->
+    <!-- <script src="{{ asset('group/assets/js/lib/data-table/jszip.min.js') }}"></script> -->
+    <!-- <script src="{{ asset('group/assets/js/lib/data-table/pdfmake.min.js') }}"></script> -->
+    <!-- <script src="{{ asset('group/assets/js/lib/data-table/vfs_fonts.js') }}"></script> -->
+    <!-- <script src="{{ asset('group/assets/js/lib/data-table/buttons.html5.min.js') }}"></script> -->
+    <!-- <script src="{{ asset('group/assets/js/lib/data-table/buttons.print.min.js') }}"></script> -->
+    <!-- <script src="{{ asset('group/assets/js/lib/data-table/datatables-init.js') }}"></script> -->

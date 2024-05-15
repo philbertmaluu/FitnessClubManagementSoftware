@@ -25,12 +25,6 @@ class ProfileController extends Controller
         ]);
     }
 
-    public function view()
-    {
-        $plans = Plan::all();
-
-        return view('trainee.index', compact('plans'));
-    }
 
     /**
      * Update the user's profile information.

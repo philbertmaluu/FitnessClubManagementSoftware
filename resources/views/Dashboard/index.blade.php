@@ -20,7 +20,7 @@
                         <div class="welcome-text">
 
                             @auth
-                            <h4>Hi, {{ Auth::user()->username }} welcome back........!</h4>
+                            <h4>Hi, {{ Auth::user()->username }} welcome back!</h4>
 
                             @endauth
                             <p class="mb-0">Manage your workout activities with us..</p>
@@ -103,6 +103,7 @@
                             </div>
                         </div>
                     </div>
+
 
                     <div class="col-lg-3 col-sm-6">
                         <div class="card">
