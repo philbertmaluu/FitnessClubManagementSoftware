@@ -16,36 +16,30 @@ class TrainerController extends Controller
         // dd($user);
         $admins = User::where('role', 1)->get();
         return view('trainer.index', compact('admins'));
-
-
-    
-
     }
 
     public function store(Request $request)
     {
 
 
-       
+
         //$messege = Notification::;
 
     }
 
 
 
-     public function activation_request()
-        {
-        //$inactiveTrainers = User::where('role', 3)->get();
-        $inactiveTrainers = Notification::all();
+    public function activation_request()
+    {
 
-        return view('trainer.requests');
-        }
-     
-            public function schedule_view()
-            {
-               $schedule = Schedule::all();
-               return view('trainer.schedule');
-            }
+        $inactiveTrainers = Notification::where('is_active', 0)->get();
 
-        }
+        return view('trainer.requests', compact('inactiveTrainers'));
+    }
 
+    public function schedule_view()
+    {
+        $schedule = Schedule::all();
+        return view('trainer.schedule', compact('schedule'));
+    }
+}

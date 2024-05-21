@@ -25,6 +25,9 @@
     <!---------normal datatable without  export------>
     <link href="{{ asset('group/vendor/datatables/css/jquery.dataTables.min.css') }}" rel="stylesheet">
 
+    <!-- Toastr -->
+    <link rel="stylesheet" href="{{ asset('group/vendor/toastr/css/toastr.min.css') }}">
+
     <!-------datatable implementation falls here------->
     <!-- Standard
     <link rel="shortcut icon" href="http://placehold.it/64.png/000/fff">

@@ -20,6 +20,22 @@
 
                 <!-- row -->
 
+                <!----------alert starts------------>
+                @if(session('success'))
+                <div class="alert alert-success alert-dismissible alert-alt fade show">
+                    <button type="button" class="close h-100" data-dismiss="alert" aria-label="Close"><span><i class="mdi mdi-close"></i></span></button>
+                    {{ session('success') }}
+                </div>
+                @elseif(session('error'))
+                <div class="alert alert-danger alert-dismissible alert-alt fade show">
+                    <button type="button" class="close h-100" data-dismiss="alert" aria-label="Close"><span><i class="mdi mdi-close"></i></span>
+                    </button>
+                    {{ session('error') }}
+                </div>
+                @endif
+
+                <!---------alert ends----------->
+
 
                 <div class="row">
                     <div class="col-12">
@@ -41,14 +57,36 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            @foreach($inactiveTrainers as $trainers)
                                             <tr>
-                                                <td>Donna Snider</td>
-                                                <td>Customer Support</td>
-                                                <td>New York</td>
-                                                <td>27</td>
-                                                <td>2011/01/25</td>
-                                                <td>$112,000</td>
+
+                                                <td>TER~{{ $trainers->id}} </td>
+                                                <td>{{ $trainers->trainer->username}}</td>
+                                                <td>{{ $trainers->trainer->email}}</td>
+                                                <td>{{ $trainers->text}}</td>
+                                                <td>
+                                                    @if( $trainers->trainer->is_active == -1 )
+                                                    <span style="background-color: orange; padding: 5px; color: white; border-radius: 50%; display: inline-block;"></span>
+                                                    pending
+                                                    @elseif($trainers->trainer->is_active == 1)
+                                                    <span style="background-color: blue; padding: 5px; color: white; border-radius: 50%; display: inline-block;"></span>
+                                                    activated
+                                                    @else
+                                                    <span style="background-color: red; padding: 5px; color: white; border-radius: 50%; display: inline-block;"></span>
+                                                    dectivated
+                                                    @endif
+                                                </td>
+                                                <td>
+                                                    <div class="btn-group" role="group">
+                                                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Activate</button>
+                                                        <div class="dropdown-menu">
+                                                            <a class="dropdown-item" href="{{ route('activate', ['id' => $trainers->trainer->id]) }}">Accept</a>
+                                                            <a class="dropdown-item" href="{{ route('cancel', ['id' => $trainers->trainer->id]) }}">Cancel</a>
+                                                        </div>
+                                                    </div>
+                                                </td>
                                             </tr>
+                                            @endforeach
                                         </tbody>
 
                                     </table>

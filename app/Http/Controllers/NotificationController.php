@@ -1,5 +1,7 @@
 <?php
+
 namespace App\Http\Controllers;
+
 use Illuminate\Http\Request;
 use App\Models\notification;
 use App\Models\User;
@@ -16,38 +18,33 @@ class NotificationController extends Controller
 
     public function create()
     {
-       return view("trainer.index");
+        return view("trainer.index");
     }
 
     public function store(Request $request)
-   {
-    $validator = $request->validate([
-        $admin = User::where('role',1)->first(),
-        'description' => 'required',
-    ]);
-  $user = Auth::user()->id;
-  $sql = Notification::where('sender_id', $user)->get()->count();
+    {
+        $validator = $request->validate([
+            $admin = User::where('role', 1)->first(),
+            'description' => 'required',
+        ]);
+        $user = Auth::user()->id;
+        $sql = Notification::where('sender_id', $user)->get()->count();
 
-  //dd($sql > 0);
-    if($sql){
-        return redirect()->back()->with('error','You have already send activation request');
 
-    }else{
+        if ($sql) {
+            return redirect()->back()->with('error', 'You have already send activation request');
+        } else {
 
-        $activation_request = new Notification;
-        $activation_request->sender_id = Auth::user()->id;
-        $activation_request->receiver_id   = $request->receiver;
-        $activation_request->text = $request->description;
-        $activation_request->asset_id = null;
-        $activation_request->is_active = 0;
+            $activation_request = new Notification;
+            $activation_request->sender_id = $user;
+            $activation_request->receiver_id   = (int)$request->receiver;
+            $activation_request->text = $request->description;
+            $activation_request->asset_id = -1;
+            $activation_request->is_active = 0;
 
-        $activation_request->save();
+            $activation_request->save();
 
-        return redirect()->back()->with('success','activation notification sent successfully');
+            return redirect()->back()->with('success', 'activation notification sent successfully');
+        }
     }
-    
-   }
-
-
-
 }
