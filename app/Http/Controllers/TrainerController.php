@@ -38,7 +38,6 @@ class TrainerController extends Controller
         //$inactiveTrainers = User::where('role', 3)->get();
         $inactiveTrainers = Notification::all();
 
-        dd();
         return view('trainer.requests');
         }
      

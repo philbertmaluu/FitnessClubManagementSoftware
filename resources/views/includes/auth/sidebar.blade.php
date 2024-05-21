@@ -12,7 +12,7 @@
                     <li><a href="{{ route('dashboard')}}">Dashboard</a></li>
                     @endif
 
-                    <li><a href="{{ route('schedule_calendar')}}">Calendar</a></li>
+                    <li><a href="{{ route('schedule_calendar')}}">Schedule</a></li>
                 </ul>
             </li>
 
@@ -21,7 +21,13 @@
             <li class="nav-label">Users management</li>
             <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i class="ti-user "></i><span class="nav-text">Administrators</span></a>
                 <ul aria-expanded="false">
-                    <li><a href="{{  route('trainer.request') }}">Trainer Request</a></li>
+                    <li><a href="#">Activations</a>
+                        <ul aria-expanded="false">
+                            <li><a href="{{  route('trainer.request') }}">Requests</a></li>
+                            <!-- <li><a href="javascript:void()">..</a></li>
+                            <li><a href="javascript:void()">Read</a></li> -->
+                        </ul>
+                    </li>
                     <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">Email</a>
                         <ul aria-expanded="false">
                             <li><a href="javascript:void()">Compose</a></li>

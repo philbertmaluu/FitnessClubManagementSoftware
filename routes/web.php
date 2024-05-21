@@ -28,6 +28,9 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->middleware(['auth', 'verified'])->name('profile.destroy');
 });
 
+//-------------------------admin routes----------------------//
+
+
 //-------------------pricing  plan routes-------------------//
 Route::resource('pricing/plans', PlanController::class)->middleware(['auth']);
 Route::post('pricing/plans', [PlanController::class, 'store'])->name('pricing.plans.store');
@@ -58,6 +61,8 @@ Route::put('pricing/plans', [PlanController::class, 'update'])->middleware(['aut
 //----------------trainer routes-----------------------//
 // Route::get('/trainer/dashboard', [TrainerController::class, 'index'])->middleware(['auth', 'verified'])->name('trainer.home');
 // Route::get('/trainer/activation/requests', [TrainerController::class, 'activation_request'])->middleware(['auth', 'verified'])->name('trainer.request');
+
+
 
 
 
