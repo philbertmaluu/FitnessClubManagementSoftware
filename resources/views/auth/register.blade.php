@@ -29,8 +29,12 @@
                                         </div>
                                         <div class="form-group">
                                             <label><strong>Register as</strong></label>
-
-
+                                            <div class="form-group">
+                                                <select name="register_as" class="form-control form-control-md">
+                                                    <option value="2">Trainee</option>
+                                                    <option value="3">Trainer</option>
+                                                </select>
+                                            </div>
                                         </div>
                                         <div class="form-group">
                                             <label><strong>Confirm Password</strong></label>

@@ -12,16 +12,73 @@
                     <li><a href="{{ route('dashboard')}}">Dashboard</a></li>
                     @endif
 
-                    <li><a href="{{ route('schedule_calendar')}}">Calendar</a></li>
+                    @if(Auth::user()->role == 3)
+                    <li><a href="{{ route('trainer.home')}}">Dashboard</a></li>
+                    <li><a href="{{ route('schedule_calendar')}}">Schedule</a></li>
+                    @endif
+                </ul>
+            </li>
+
+            @if(Auth::user()->role == 3)
+            <li class="nav-label">Training Facilities</li>
+            <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i class="ti-crown"></i><span class="nav-text">Facilities</span></a>
+                <ul aria-expanded="false">
+                    <li><a href="javascript:void()">Assigned</a></li>
+                    <li><a href="javascript:void()">Fixing</a></li>
+                    <li><a href="javascript:void()">Retired</a></li>
+
                 </ul>
             </li>
 
 
+            <li class="nav-label">Trainee Management</li>
+            <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i class="ti-user "></i><span class="nav-text">Trainees</span></a>
+                <ul aria-expanded="false">
+                    <li><a href="javascript:void()">Assigned</a></li>
+                    <li><a href="javascript:void()">....</a></li>
+                    <li><a href="javascript:void()">....</a></li>
+                </ul>
+            </li>
 
+            <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i class="ti-heart"></i><span class="nav-text">Meal Planning</span></a>
+                <ul aria-expanded="false">
+                    <li><a href="javascript:void()">Meals</a></li>
+                    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">Suppliments</a>
+                        <ul aria-expanded="false">
+                            <li><a href="javascript:void()">Meals</a></li>
+                            <li><a href="javascript:void()">....</a></li>
+                            <li><a href="javascript:void()">....</a></li>
+                        </ul>
+                    </li>
+
+                </ul>
+            </li>
+
+
+            <li class="nav-label">Settings</li>
+            <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i class="ti-settings"></i><span class="nav-text">Settings</span></a>
+                <ul aria-expanded="false">
+                    <li><a href="javascript:void()">Centers</a></li>
+                    <li><a href="javascript:void()">Packages</a></li>
+                    <li><a href="javascript:void()">Import</a></li>
+                </ul>
+            </li>
+
+            @endif
+
+
+
+            @if(Auth::user()->role == 1)
             <li class="nav-label">Users management</li>
             <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i class="ti-user "></i><span class="nav-text">Administrators</span></a>
                 <ul aria-expanded="false">
-                    <li><a href="{{  route('trainer.request') }}">Trainer Request</a></li>
+                    <li><a href="javascript:void()">Activations</a>
+                        <ul aria-expanded="false">
+                            <li><a href="{{  route('trainer.request') }}">Requests</a></li>
+                            <!-- <li><a href="javascript:void()">..</a></li>
+                            <li><a href="javascript:void()">Read</a></li> -->
+                        </ul>
+                    </li>
                     <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">Email</a>
                         <ul aria-expanded="false">
                             <li><a href="javascript:void()">Compose</a></li>
@@ -115,6 +172,8 @@
                     <li><a href="javascript:void()">Import</a></li>
                 </ul>
             </li>
+
+            @endif
 
         </ul>
     </div>

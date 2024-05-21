@@ -40,6 +40,12 @@
     <!-----datatable without export ------->
     <script src="{{ asset('group/vendor/datatables/js/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('group/js/plugins-init/datatables.init.js') }}"></script>
+
+    <!-- Toastr -->
+    <script src="{{ asset('group/vendor/toastr/js/toastr.min.js') }}"></script>
+
+    <!-- All init script -->
+    <script src="{{ asset('group/js/plugins-init/toastr-init.js') }}"></script>
     <!---------data table implementation here----->
 
     <!-- jquery vendor -->
