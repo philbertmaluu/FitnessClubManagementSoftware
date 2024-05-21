@@ -50,11 +50,18 @@ class RegisteredUserController extends Controller
 
         if ($user->role == 2) {
             return redirect()->route('trainee.home');
+        } elseif ($user->role == 3) {
+            return redirect()->route('trainer.home');
+        }
+        if($user-> role == 3)
+        {
+            return redirect()->route('trainer.home');
         }
 
         // Check user role and redirect accordingly
-        if ($user->role == 1) {
-            return redirect(route('dashboard', absolute: false));;
-        }
+        // if ($user->role == 1) {
+        return redirect(route('dashboard', absolute: false));;
+        //}
+
     }
 }

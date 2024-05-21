@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Plan;
 
 class PlanController extends Controller
 {
@@ -11,6 +12,9 @@ class PlanController extends Controller
      */
     public function index()
     {
+        $plans = Plan::all();
+
+        return view('Plan.index', compact('plans'));
     }
 
     /**
@@ -26,7 +30,25 @@ class PlanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $validator = $request->validate([
+            'name' => 'required',
+            'price' => 'required',
+        ]);
+
+        if (!$validator) {
+            return back()->with('error', ' Something went wrong..');
+        }
+
+        Plan::create([
+            'name' => $request->name,
+            'price' => $request->price,
+            'description' => $request->description,
+        ]);
+
+
+
+        return redirect()->back()->with('success', 'Plan created successfully..');
     }
 
     /**

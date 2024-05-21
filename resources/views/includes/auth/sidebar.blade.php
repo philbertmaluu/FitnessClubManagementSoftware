@@ -2,13 +2,17 @@
 <div class="quixnav">
     <div class="quixnav-scroll">
         <ul class="metismenu" id="menu">
+
             <li class="nav-label first">Main Menu</li>
             <!-- <li><a href="index.html"><i class="icon icon-single-04"></i><span class="nav-text">Dashboard</span></a>
-                    </li> -->
+            </li> -->
             <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i class="ti-home"></i><span class="nav-text">Dashboard</span></a>
                 <ul aria-expanded="false">
-                    <li><a href="{{ url('/')}}">Dashboard</a></li>
-                    <li><a href="javascript:void()">Calendar</a></li>
+                    @if(Auth::user()->role == 1)
+                    <li><a href="{{ route('dashboard')}}">Dashboard</a></li>
+                    @endif
+
+                    <li><a href="{{ route('schedule_calendar')}}">Schedule</a></li>
                 </ul>
             </li>
 
@@ -17,7 +21,13 @@
             <li class="nav-label">Users management</li>
             <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i class="ti-user "></i><span class="nav-text">Administrators</span></a>
                 <ul aria-expanded="false">
-                    <li><a href="javascript:void()">Profile</a></li>
+                    <li><a href="#">Activations</a>
+                        <ul aria-expanded="false">
+                            <li><a href="{{  route('trainer.request') }}">Requests</a></li>
+                            <!-- <li><a href="javascript:void()">..</a></li>
+                            <li><a href="javascript:void()">Read</a></li> -->
+                        </ul>
+                    </li>
                     <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">Email</a>
                         <ul aria-expanded="false">
                             <li><a href="javascript:void()">Compose</a></li>
@@ -28,6 +38,7 @@
                     <li><a href="javascript:void()">Calendar</a></li>
                 </ul>
             </li>
+
             <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i class="ti-user  "></i><span class="nav-text">Trainers</span></a>
                 <ul aria-expanded="false">
                     <li><a href="javascript:void()">Profile</a></li>
@@ -43,7 +54,7 @@
             </li>
             <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i class="ti-face-smile "></i><span class="nav-text">Members</span></a>
                 <ul aria-expanded="false">
-                    <li><a href="javascript:void()">Profile</a></li>
+                    <li><a href="{{ url('user/profile')}}">Profile</a></li>
                     <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">Email</a>
                         <ul aria-expanded="false">
                             <li><a href="javascript:void()">Compose</a></li>
@@ -54,8 +65,6 @@
                     <li><a href="javascript:void()">Calendar</a></li>
                 </ul>
             </li>
-
-
 
             <li class="nav-label">Assets management</li>
             <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i class="ti-crown"></i><span class="nav-text">Assets</span></a>
@@ -112,6 +121,7 @@
                     <li><a href="javascript:void()">Import</a></li>
                 </ul>
             </li>
+
         </ul>
     </div>
 </div>
