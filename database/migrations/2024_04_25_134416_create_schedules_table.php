@@ -20,7 +20,7 @@ return new class extends Migration
             $table->integer('activity_id');
             $table->text('description');
             $table->string('location');
-            $table->integer('traner_id');
+            $table->integer('trainer_id');
             $table->timestamps();
         });
     }

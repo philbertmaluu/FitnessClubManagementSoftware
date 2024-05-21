@@ -8,7 +8,10 @@
             </li> -->
             <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i class="ti-home"></i><span class="nav-text">Dashboard</span></a>
                 <ul aria-expanded="false">
+                    @if(Auth::user()->role == 1)
                     <li><a href="{{ route('dashboard')}}">Dashboard</a></li>
+                    @endif
+
                     <li><a href="{{ route('schedule_calendar')}}">Calendar</a></li>
                 </ul>
             </li>

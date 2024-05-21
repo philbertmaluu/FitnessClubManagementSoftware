@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\notification;
 use App\Models\User;
+use App\Models\schedule;
 
 class TrainerController extends Controller
 {
@@ -40,5 +41,12 @@ class TrainerController extends Controller
         dd();
         return view('trainer.requests');
         }
+     
+            public function schedule_view()
+            {
+               $schedule = Schedule::all();
+               return view('trainer.schedule');
+            }
+
         }
 

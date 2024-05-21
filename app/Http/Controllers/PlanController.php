@@ -43,7 +43,7 @@ class PlanController extends Controller
         Plan::create([
             'name' => $request->name,
             'price' => $request->price,
-            'desciption' => $request->descrioption,
+            'description' => $request->description,
         ]);
 
 

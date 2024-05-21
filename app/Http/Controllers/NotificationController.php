@@ -25,8 +25,14 @@ class NotificationController extends Controller
         $admin = User::where('role',1)->first(),
         'description' => 'required',
     ]);
+  $user = Auth::user()->id;
+  $sql = Notification::where('sender_id', $user)->get()->count();
 
-    // dd($request);
+  //dd($sql > 0);
+    if($sql){
+        return redirect()->back()->with('error','You have already send activation request');
+
+    }else{
 
         $activation_request = new Notification;
         $activation_request->sender_id = Auth::user()->id;
@@ -34,12 +40,12 @@ class NotificationController extends Controller
         $activation_request->text = $request->description;
         $activation_request->asset_id = null;
         $activation_request->is_active = 0;
+
         $activation_request->save();
 
         return redirect()->back()->with('success','activation notification sent successfully');
-
-
-
+    }
+    
    }
 
 
