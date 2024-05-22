@@ -42,4 +42,11 @@ class TrainerController extends Controller
         $schedule = Schedule::all();
         return view('trainer.schedule', compact('schedule'));
     }
+
+    public function createLevel()
+    {
+
+
+        return view('level.index');
+    }
 }

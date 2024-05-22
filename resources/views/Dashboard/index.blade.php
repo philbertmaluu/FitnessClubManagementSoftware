@@ -168,121 +168,171 @@
                     </div>
                 </div> -->
                 <div class="row">
-                    <div class="col-lg-12">
+
+
+                    <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h4 class="card-title">All Exam Result</h4>
+                                <h4 class="card-title">Trainers Track</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table id="example" class="display" style="min-width: 845px">
+                                        <thead>
+                                            <thead>
+                                                <tr>
+                                                    <th>Code</th>
+                                                    <th>Name</th>
+                                                    <th>Email</th>
+                                                    <th>Levels</th>
+                                                    <th>Tasks</th>
+                                                    <th>Action</th>
+                                                </tr>
+                                            </thead>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>T~6G45Q</td>
+                                                <td>Philbert Malulu</td>
+                                                <td>
+                                                    philbertmaluu96@gmail.com
+                                                </td>
+                                                <td>
+                                                    Begginers & Juniours
+                                                </td>
+                                                <td>
+                                                    10
+                                                </td>
+                                                <td>
+                                                    <div class="bootstrap-badge">
+                                                        <a href="javascript:void()" class="badge badge-warning"><i class="ti-eye" style="font-size: 15px;"></i></a>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                        </tbody>
+
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="year-calendar"></div>
+                            </div>
+                        </div>
+                        <!-- /# card -->
+                    </div>
+                    <div class="col-lg-8">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">All Expense</h4>
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
                                     <table class="table student-data-table m-t-20">
                                         <thead>
                                             <tr>
-                                                <th>Subject</th>
-                                                <th>Grade Point</th>
-                                                <th>Percent Form</th>
-                                                <th>Percent Upto</th>
+                                                <th>Expense Type</th>
+                                                <th>Amount</th>
+                                                <th>Status</th>
+                                                <th>Email</th>
                                                 <th>Date</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td>Class Test</td>
-                                                <td>Mathmatics</td>
+
                                                 <td>
-                                                    4.00
+                                                    Salary
                                                 </td>
                                                 <td>
-                                                    95.00
+                                                    $2000
                                                 </td>
                                                 <td>
-                                                    100
+                                                    <span class="badge badge-primary">Paid</span>
                                                 </td>
-                                                <td>20/04/2017</td>
+                                                <td>
+                                                    edumin@gmail.com
+                                                </td>
+                                                <td>
+                                                    10/05/2017
+                                                </td>
                                             </tr>
                                             <tr>
-                                                <td>Class Test</td>
-                                                <td>Mathmatics</td>
+
                                                 <td>
-                                                    4.00
+                                                    Salary
                                                 </td>
                                                 <td>
-                                                    95.00
+                                                    $2000
                                                 </td>
                                                 <td>
-                                                    100
+                                                    <span class="badge badge-warning">Pending</span>
                                                 </td>
-                                                <td>20/04/2017</td>
+                                                <td>
+                                                    edumin@gmail.com
+                                                </td>
+                                                <td>
+                                                    10/05/2017
+                                                </td>
                                             </tr>
                                             <tr>
-                                                <td>Class Test</td>
-                                                <td>English</td>
+
                                                 <td>
-                                                    4.00
+                                                    Salary
                                                 </td>
                                                 <td>
-                                                    95.00
+                                                    $2000
                                                 </td>
                                                 <td>
-                                                    100
+                                                    <span class="badge badge-primary">Paid</span>
                                                 </td>
-                                                <td>20/04/2017</td>
+                                                <td>
+                                                    edumin@gmail.com
+                                                </td>
+                                                <td>
+                                                    10/05/2017
+                                                </td>
                                             </tr>
                                             <tr>
-                                                <td>Class Test</td>
-                                                <td>Bangla</td>
+
                                                 <td>
-                                                    4.00
+                                                    Salary
                                                 </td>
                                                 <td>
-                                                    95.00
+                                                    $2000
                                                 </td>
                                                 <td>
-                                                    100
+                                                    <span class="badge badge-danger">Due</span>
                                                 </td>
-                                                <td>20/04/2017</td>
+                                                <td>
+                                                    edumin@gmail.com
+                                                </td>
+                                                <td>
+                                                    10/05/2017
+                                                </td>
                                             </tr>
                                             <tr>
-                                                <td>Class Test</td>
-                                                <td>Mathmatics</td>
+
                                                 <td>
-                                                    4.00
+                                                    Salary
                                                 </td>
                                                 <td>
-                                                    95.00
+                                                    $2000
                                                 </td>
                                                 <td>
-                                                    100
-                                                </td>
-                                                <td>20/04/2017</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Class Test</td>
-                                                <td>English</td>
-                                                <td>
-                                                    4.00
+                                                    <span class="badge badge-primary">Paid</span>
                                                 </td>
                                                 <td>
-                                                    95.00
+                                                    edumin@gmail.com
                                                 </td>
                                                 <td>
-                                                    100
+                                                    10/05/2017
                                                 </td>
-                                                <td>20/04/2017</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Class Test</td>
-                                                <td>Mathmatics</td>
-                                                <td>
-                                                    4.00
-                                                </td>
-                                                <td>
-                                                    95.00
-                                                </td>
-                                                <td>
-                                                    100
-                                                </td>
-                                                <td>20/04/2017</td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -290,6 +340,7 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="col-lg-6 col-xl-4 col-xxl-6 col-md-6">
                         <div class="card">
                             <div class="card-header">
@@ -549,130 +600,6 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-4">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="year-calendar"></div>
-                            </div>
-                        </div>
-                        <!-- /# card -->
-                    </div>
-                    <div class="col-lg-8">
-                        <div class="card">
-                            <div class="card-header">
-                                <h4 class="card-title">All Expense</h4>
-                            </div>
-                            <div class="card-body">
-                                <div class="table-responsive">
-                                    <table class="table student-data-table m-t-20">
-                                        <thead>
-                                            <tr>
-                                                <th>Expense Type</th>
-                                                <th>Amount</th>
-                                                <th>Status</th>
-                                                <th>Email</th>
-                                                <th>Date</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-
-                                                <td>
-                                                    Salary
-                                                </td>
-                                                <td>
-                                                    $2000
-                                                </td>
-                                                <td>
-                                                    <span class="badge badge-primary">Paid</span>
-                                                </td>
-                                                <td>
-                                                    edumin@gmail.com
-                                                </td>
-                                                <td>
-                                                    10/05/2017
-                                                </td>
-                                            </tr>
-                                            <tr>
-
-                                                <td>
-                                                    Salary
-                                                </td>
-                                                <td>
-                                                    $2000
-                                                </td>
-                                                <td>
-                                                    <span class="badge badge-warning">Pending</span>
-                                                </td>
-                                                <td>
-                                                    edumin@gmail.com
-                                                </td>
-                                                <td>
-                                                    10/05/2017
-                                                </td>
-                                            </tr>
-                                            <tr>
-
-                                                <td>
-                                                    Salary
-                                                </td>
-                                                <td>
-                                                    $2000
-                                                </td>
-                                                <td>
-                                                    <span class="badge badge-primary">Paid</span>
-                                                </td>
-                                                <td>
-                                                    edumin@gmail.com
-                                                </td>
-                                                <td>
-                                                    10/05/2017
-                                                </td>
-                                            </tr>
-                                            <tr>
-
-                                                <td>
-                                                    Salary
-                                                </td>
-                                                <td>
-                                                    $2000
-                                                </td>
-                                                <td>
-                                                    <span class="badge badge-danger">Due</span>
-                                                </td>
-                                                <td>
-                                                    edumin@gmail.com
-                                                </td>
-                                                <td>
-                                                    10/05/2017
-                                                </td>
-                                            </tr>
-                                            <tr>
-
-                                                <td>
-                                                    Salary
-                                                </td>
-                                                <td>
-                                                    $2000
-                                                </td>
-                                                <td>
-                                                    <span class="badge badge-primary">Paid</span>
-                                                </td>
-                                                <td>
-                                                    edumin@gmail.com
-                                                </td>
-                                                <td>
-                                                    10/05/2017
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
                                 </div>
                             </div>
                         </div>

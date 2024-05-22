@@ -248,7 +248,7 @@ body {
     font-size: 0.875rem;
     font-weight: 400;
     line-height: 1.5;
-    color: #BDBDC7;
+    color: #040404;
     text-align: left;
     background-color: rgba(88, 115, 254, 0.04);
 }
@@ -406,7 +406,7 @@ table {
 caption {
     padding-top: 0.75rem;
     padding-bottom: 0.75rem;
-    color: #666666;
+    color: #050505;
     text-align: left;
     caption-side: bottom;
 }
@@ -1993,23 +1993,23 @@ pre code {
 .table {
     width: 100%;
     margin-bottom: 1rem;
-    color: #BDBDC7;
+    color: #030304;
 }
 
 .table th,
 .table td {
     padding: 0.75rem;
     vertical-align: top;
-    border-top: 1px solid #EEEEEE;
+    border-top: 1px solid #fbfbfb;
 }
 
 .table thead th {
     vertical-align: bottom;
-    border-bottom: 2px solid #EEEEEE;
+    border-bottom: 2px solid #ffff;
 }
 
 .table tbody+tbody {
-    border-top: 2px solid #EEEEEE;
+    /* border-top: 2px solid #EEEEEE; */
 }
 
 .table-sm th,
@@ -2039,7 +2039,7 @@ pre code {
 }
 
 .table-striped tbody tr:nth-of-type(odd) {
-    background-color: rgba(0, 0, 0, 0.05);
+    background-color: rgba(249, 246, 246, 0.05);
 }
 
 .table-hover tbody tr:hover {
@@ -2057,7 +2057,7 @@ pre code {
 .table-primary td,
 .table-primary thead th,
 .table-primary tbody+tbody {
-    border-color: #a999ec;
+    border-color: #020202;
 }
 
 .table-hover .table-primary:hover {
@@ -2943,7 +2943,7 @@ fieldset:disabled a.btn {
 .btn-primary.disabled,
 .btn-primary:disabled {
     color: #fff;
-    background-color: #593bdb;
+    background-color: #db883b;
     border-color: #593bdb;
 }
 
@@ -5161,10 +5161,10 @@ input[type="button"].btn-block {
     flex-direction: column;
     min-width: 0;
     word-wrap: break-word;
-    background-color: #fff;
+    background-color: black;
     background-clip: border-box;
     border: 1px solid rgba(0, 0, 0, 0.125);
-    border-radius: 0.25rem;
+    border-radius: 15px;
 }
 
 .card>hr {
@@ -12119,7 +12119,7 @@ a.active {
     position: absolute;
     left: 0;
     top: 0;
-    background-color: #343957;
+    background-color: #ffffff;
     transition: all .2s ease;
     z-index: 4;
 }
@@ -15596,7 +15596,7 @@ html[dir="rtl"] [direction="rtl"][data-sidebar-style="compact"]:not([data-layout
     top: 5rem;
     padding-top: 0;
     z-index: 2;
-    background-color: #343957;
+    background-color: #fffff;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
     transition: all .2s ease;
 }
@@ -15646,14 +15646,15 @@ html[dir="rtl"] [direction="rtl"][data-sidebar-style="compact"]:not([data-layout
 }
 
 .quixnav .metismenu>li>a {
-    color: #bdbdc7;
+    color: #454545;
 }
 
 .quixnav .metismenu>li:hover>a,
 .quixnav .metismenu>li:focus>a,
 .quixnav .metismenu>li.mm-active>a {
-    background-color: #6b51df;
-    color: #fff;
+    /* background: rgb(2, 0, 36); */
+    background: linear-gradient(90deg, rgba(2, 0, 36, 0.6012998949579832) 0%, rgba(10, 10, 10, 0.3435968137254902) 100%, rgba(5, 5, 5, 0.2399553571428571) 100%);
+    color: #454545;
 }
 
 .quixnav .metismenu>li.mm-active ul {
@@ -24667,8 +24668,8 @@ button:focus {
 }
 
 .stat-widget-one .stat-icon i {
-    font-size: 30px;
-    border-width: 3px;
+    font-size: 18px;
+    border-width: 2px;
     border-style: solid;
     border-radius: 100px;
     padding: 15px;
@@ -24682,12 +24683,12 @@ button:focus {
 }
 
 .stat-widget-one .stat-text {
-    font-size: 14px;
-    color: #868e96;
+    font-size: 13px;
+    color: #454545;
 }
 
 .stat-widget-one .stat-digit {
-    font-size: 24px;
+    font-size: 15px;
     color: #373757;
 }
 
@@ -24707,9 +24708,9 @@ button:focus {
 }
 
 .stat-widget-two .stat-text {
-    font-size: 16px;
+    font-size: 10px;
     margin-bottom: 5px;
-    color: #868e96;
+    color: #454545;
 }
 
 .stat-widget-two .progress {
@@ -25097,14 +25098,14 @@ table.dataTable.row-border tbody th,
 table.dataTable.row-border tbody td,
 table.dataTable.display tbody th,
 table.dataTable.display tbody td {
-    border-color: #eaeaea;
+    border-color: #ffffff;
 }
 
 [data-theme-version="dark"] table.dataTable.row-border tbody th,
 [data-theme-version="dark"] table.dataTable.row-border tbody td,
 [data-theme-version="dark"] table.dataTable.display tbody th,
 [data-theme-version="dark"] table.dataTable.display tbody td {
-    border-color: #424D63;
+    border-color: #ffffff;
 }
 
 .fooicon {

@@ -4,7 +4,7 @@
         <img class="logo-abbr" src="{{ asset('group/images/logo.png') }}" alt="">
         <!-- <img class="logo-compact" src="{{ asset('group/images/logo-text.png') }}" alt=""> -->
         <!-- <img class="brand-title" src="{{ asset('group/images/logo-text.png') }}" alt=""> -->
-        <h3 class="brand-title" style="font-weight:bold; margin-top: 6px; color:#FFFFFF;">GYM<span style="color:tomato;">07</span></h3>
+        <h3 class="brand-title" style="font-weight:bold; margin-top: 6px; color:#454545;">GYM<span style="color:tomato;">07</span></h3>
     </a>
 
     <div class="nav-control">
