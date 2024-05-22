@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\level;
 use Illuminate\Http\Request;
 use App\Models\notification;
 use App\Models\User;
 use App\Models\schedule;
+use SebastianBergmann\Type\TrueType;
+use Illuminate\Support\Facades\Auth;
 
 class TrainerController extends Controller
 {
@@ -45,8 +48,41 @@ class TrainerController extends Controller
 
     public function createLevel()
     {
+        $user = Auth::user()->id;
+        $levels = level::where('created_by', $user)->get();
+        return view('level.index', compact('levels'));
+    }
 
+    public function levelStore(Request $request)
+    {
+        $validator = \Validator::make(
+            $request->all(),
+            [
+                'name' => ['required', 'string'],
+                'description' => ['required'],
+                'days' => ['required', 'max:60'],
+            ]
+        );
 
-        return view('level.index');
+        if ($validator->fails()) {
+            $messages = $validator->getMessageBag();
+            return redirect()->back()->with('error', $messages->first());
+        }
+
+        //dd($request);
+
+        $user = Auth::user()->id;
+        $level = new level;
+        $level->name        = $request->name;
+        $level->created_by  = $user;
+        $level->description = $request->description;
+        $level->days        = $request->days;
+        $level->save();
+
+        if ($level) {
+            return redirect()->back()->with('success', 'Level created successfully.');
+        } else {
+            return redirect()->back()->with('error', 'Something went wrong.');
+        }
     }
 }

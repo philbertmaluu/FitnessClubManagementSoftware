@@ -18,6 +18,23 @@
         <div class="content-body">
 
             <div class="container-fluid">
+
+                <!----------alert starts------------>
+                @if(session('success'))
+                <div class="alert alert-success alert-dismissible alert-alt fade show">
+                    <button type="button" class="close h-100" data-dismiss="alert" aria-label="Close"><span><i class="mdi mdi-close"></i></span></button>
+                    {{ session('success') }}
+                </div>
+                @elseif(session('error'))
+                <div class="alert alert-danger alert-dismissible alert-alt fade show">
+                    <button type="button" class="close h-100" data-dismiss="alert" aria-label="Close"><span><i class="mdi mdi-close"></i></span>
+                    </button>
+                    {{ session('error') }}
+                </div>
+                @endif
+
+                <!---------alert ends----------->
+
                 <div class="row page-titles mx-0">
                     <div class="col-sm-6 p-md-0">
                         <div class="welcome-text">
@@ -28,14 +45,11 @@
                     <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
                         <a data-toggle="modal" data-target=".bd-example-modal-lg" href="javascript:void()" class="badge badge-primary"><span class="text-light"><i class="fa fa-plus color-light"></i></span></a>
                     </div>
-
-
-
                 </div>
                 <div class="row">
 
                     @foreach($plans as $plan)
-                    <div class="col-xl-4 col-xxl-6 col-lg-6 col-sm-6">
+                    <div class="col-xl-3 col-xxl-4 col-lg-4 col-sm-6">
                         <div class="card text-center">
                             <div class="card-header">
                                 <h5 class="card-title">{{$plan->name}}</h5>
@@ -190,9 +204,6 @@
                         </div>
                     </div>
                     <!------- plan starts------>
-
-
-
 
                 </div>
             </div>

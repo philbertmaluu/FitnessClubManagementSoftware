@@ -1,7 +1,7 @@
 <!--Nav header start-->
 <div class="nav-header">
-    <a href="index.html" class="brand-logo">
-        <img class="logo-abbr" src="{{ asset('group/images/logo.png') }}" alt="">
+    <a href="javascript:void()" class="brand-logo">
+        <img class="logo-abbr" style="color: black;" src="{{ asset('group/images/logo.png') }}" alt="">
         <!-- <img class="logo-compact" src="{{ asset('group/images/logo-text.png') }}" alt=""> -->
         <!-- <img class="brand-title" src="{{ asset('group/images/logo-text.png') }}" alt=""> -->
         <h3 class="brand-title" style="font-weight:bold; margin-top: 6px; color:#454545;">GYM<span style="color:tomato;">07</span></h3>
@@ -22,14 +22,14 @@
             <div class="collapse navbar-collapse justify-content-between">
                 <div class="header-left">
                     <div class="search_bar dropdown">
-                        <span class="search_icon p-3 c-pointer" data-toggle="dropdown">
+                        <!-- <span class="search_icon p-3 c-pointer" data-toggle="dropdown">
                             <i class="mdi mdi-magnify"></i>
-                        </span>
-                        <div class="dropdown-menu p-0 m-0">
+                        </span> -->
+                        <!-- <div class="dropdown-menu p-0 m-0">
                             <form>
                                 <input class="form-control" type="search" placeholder="Search" aria-label="Search">
                             </form>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
 
@@ -106,12 +106,12 @@
                                 <i class="ti-email"></i>
                                 <span class="ml-2">Inbox </span>
                             </a>
-
+                            @if(Auth::user()->role == 1 && Auth::user()->role == 3)
                             <a href="{{ url('pricing/plans')}}" class="dropdown-item">
                                 <i class="ti-layout-grid2"></i>
                                 <span class="ml-2">Plans</span>
                             </a>
-
+                            @endif
                             <form id="logout-form" method="POST" action="{{ route('logout') }}">
                                 @csrf
                             </form>

@@ -69,6 +69,9 @@ Route::get('/trainee/calendar/schedule', [TraineeController::class, 'schedule'])
 Route::get('/trainer/dashboard', [TrainerController::class, 'index'])->middleware(['auth', 'verified'])->name('trainer.home');
 Route::get('/trainer/activation/requests', [TrainerController::class, 'activation_request'])->middleware(['auth', 'verified'])->name('trainer.request');
 Route::get('/trainer/level', [TrainerController::class, 'createLevel'])->middleware(['auth', 'verified'])->name('trainer.levels');
+Route::post('/trainer/level/store', [TrainerController::class, 'levelStore'])->middleware(['auth', 'verified'])->name('trainer.levels.store');
+
+
 
 
 

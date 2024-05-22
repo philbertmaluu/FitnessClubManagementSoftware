@@ -60,7 +60,7 @@
                                             @foreach($inactiveTrainers as $trainers)
                                             <tr>
 
-                                                <td>TER~{{ $trainers->id}} </td>
+                                                <td>TER~013{{ $trainers->id}} </td>
                                                 <td>{{ $trainers->trainer->username}}</td>
                                                 <td>{{ $trainers->trainer->email}}</td>
                                                 <td>{{ $trainers->text}}</td>

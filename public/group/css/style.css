@@ -5208,6 +5208,7 @@ input[type="button"].btn-block {
     margin-left: 1.25rem;
 }
 
+
 .card-header {
     padding: 0.75rem 1.25rem;
     margin-bottom: 0;
@@ -6549,7 +6550,7 @@ a.close.disabled {
 
     .modal-lg,
     .modal-xl {
-        max-width: 800px;
+        max-width: 1200px;
     }
 }
 
@@ -12119,7 +12120,7 @@ a.active {
     position: absolute;
     left: 0;
     top: 0;
-    background-color: #ffffff;
+    background-color: #F8F9FE;
     transition: all .2s ease;
     z-index: 4;
 }
@@ -12341,9 +12342,10 @@ a.active {
     z-index: 1;
     position: relative;
     padding: 0rem;
-    background-color: #fff;
+    background-color: #F8F9FE;
     z-index: 3;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    /* box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1); */
+    box-shadow: 238px 5px 20px 4px rgba(0, 0, 0, 0.1);
     padding-left: 17.1875rem;
     transition: all .2s ease;
 }
@@ -15654,7 +15656,7 @@ html[dir="rtl"] [direction="rtl"][data-sidebar-style="compact"]:not([data-layout
 .quixnav .metismenu>li.mm-active>a {
     /* background: rgb(2, 0, 36); */
     background: linear-gradient(90deg, rgba(2, 0, 36, 0.6012998949579832) 0%, rgba(10, 10, 10, 0.3435968137254902) 100%, rgba(5, 5, 5, 0.2399553571428571) 100%);
-    color: #454545;
+    color: white;
 }
 
 .quixnav .metismenu>li.mm-active ul {
@@ -15683,7 +15685,7 @@ html[dir="rtl"] [direction="rtl"][data-sidebar-style="compact"]:not([data-layout
 .quixnav .metismenu ul a:focus,
 .quixnav .metismenu ul a.mm-active {
     text-decoration: none;
-    color: #fff;
+    color: #454545;
 }
 
 [direction="rtl"] .quixnav .metismenu ul a {
