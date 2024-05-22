@@ -13,6 +13,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\TrainerController;
 use App\Http\Controllers\TraineeController;
 use App\Http\Controllers\ActivationController;
+use App\Http\Controllers\AdminController;
 
 
 
@@ -33,8 +34,8 @@ Route::middleware('auth')->group(function () {
 //-------------------------admin routes----------------------//
 Route::get('/trainer/activation/accept/{id}', [ActivationController::class, 'activationAccept'])->name('activate');
 Route::get('/trainer/activation/cancel/{id}', [ActivationController::class, 'activationCancel'])->name('cancel');
-
-
+Route::get('admin/settings/promotion', [AdminController::class, 'trainerPromotion'])->name('admin.user.promotion');
+Route::get('admin/trainer/activation/requests', [TrainerController::class, 'activation_request'])->middleware(['auth', 'verified'])->name('trainer.request');
 
 
 
@@ -67,7 +68,7 @@ Route::get('/trainee/calendar/schedule', [TraineeController::class, 'schedule'])
 
 //----------------trainer routes-----------------------//
 Route::get('/trainer/dashboard', [TrainerController::class, 'index'])->middleware(['auth', 'verified'])->name('trainer.home');
-Route::get('/trainer/activation/requests', [TrainerController::class, 'activation_request'])->middleware(['auth', 'verified'])->name('trainer.request');
+Route::get('admin/trainer/activation/requests', [TrainerController::class, 'activation_request'])->middleware(['auth', 'verified'])->name('trainer.request');
 Route::get('/trainer/level', [TrainerController::class, 'createLevel'])->middleware(['auth', 'verified'])->name('trainer.levels');
 Route::post('/trainer/level/store', [TrainerController::class, 'levelStore'])->middleware(['auth', 'verified'])->name('trainer.levels.store');
 
