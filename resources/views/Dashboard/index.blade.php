@@ -169,6 +169,68 @@
                 </div> -->
                 <div class="row">
 
+                    <!-- Large modal -->
+                    <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Large modal</button> -->
+                    <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">Trainer Tasks</h5>
+                                    <button type="button" class="close" data-dismiss="modal"><span>&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body d-flex justify-center align-center">
+
+                                    <div class="col-lg-4 col-sm-6">
+                                        <div class="card d-flex justify-center align-center" style="background-color: #ECEDF2;">
+                                            <div class="stat-widget-one card-body">
+                                                <div class="stat-icon d-inline-block">
+                                                    <!-- <i class="ti-user text-info border-info"></i> -->
+                                                </div>
+                                                <div class="stat-content d-inline-block">
+                                                    <div class="stat-text">tasks follow here</div>
+                                                    <!-- <div class="stat-digit">{{ $adminCount}}</div> -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-4 col-sm-6">
+                                        <div class="card d-flex justify-center align-center" style="background-color: #ECEDF2;">
+                                            <div class="stat-widget-one card-body">
+                                                <div class="stat-icon d-inline-block">
+                                                    <!-- <i class="ti-user text-info border-info"></i> -->
+                                                </div>
+                                                <div class="stat-content d-inline-block">
+                                                    <div class="stat-text">tasks follow here</div>
+                                                    <!-- <div class="stat-digit">{{ $adminCount}}</div> -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col-lg-4 col-sm-6">
+                                        <div class="card" style="background-color: #ECEDF2;">
+                                            <div class="stat-widget-one card-body">
+                                                <div class="stat-icon d-inline-block">
+                                                    <!-- <i class="ti-user text-info border-info"></i> -->
+                                                </div>
+                                                <div class="stat-content d-inline-block">
+                                                    <div class="stat-text">tasks follow here</div>
+                                                    <!-- <div class="stat-digit">{{ $adminCount}}</div> -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
                     <div class="col-12">
                         <div class="card">
@@ -205,7 +267,7 @@
                                                 </td>
                                                 <td>
                                                     <div class="bootstrap-badge">
-                                                        <a href="javascript:void()" class="badge badge-warning"><i class="ti-eye" style="font-size: 15px;"></i></a>
+                                                        <a href="javascript:void()" class="badge badge-warning" data-toggle="modal" data-target=".bd-example-modal-lg"><i class="ti-eye" style="font-size: 15px;"></i></a>
                                                     </div>
                                                 </td>
                                             </tr>
@@ -424,7 +486,7 @@
                                 <div class="recent-comment m-t-15">
                                     <div class="media">
                                         <div class="media-left">
-                                            <a href="#"><img class="media-object mr-3" src="./images/avatar/4.png" alt="..."></a>
+                                            <a href="#"><img class="media-object mr-3" src="{{ asset('group/images/avatar/4.png') }}" alt="..."></a>
                                         </div>
                                         <div class="media-body">
                                             <h4 class="media-heading text-primary">john doe</h4>
@@ -434,7 +496,7 @@
                                     </div>
                                     <div class="media">
                                         <div class="media-left">
-                                            <a href="#"><img class="media-object mr-3" src="./images/avatar/2.png" alt="..."></a>
+                                            <a href="#"><img class="media-object mr-3" src="{{ asset('group/images/avatar/2.png') }}" alt="..."></a>
                                         </div>
                                         <div class="media-body">
                                             <h4 class="media-heading text-success">Mr. John</h4>
@@ -444,7 +506,7 @@
                                     </div>
                                     <div class="media">
                                         <div class="media-left">
-                                            <a href="#"><img class="media-object mr-3" src="./images/avatar/3.png" alt="..."></a>
+                                            <a href="#"><img class="media-object mr-3" src="{{ asset('group/images/avatar/3.png') }}" alt="..."></a>
                                         </div>
                                         <div class="media-body">
                                             <h4 class="media-heading text-danger">Mr. John</h4>
@@ -454,7 +516,7 @@
                                     </div>
                                     <div class="media">
                                         <div class="media-left">
-                                            <a href="#"><img class="media-object mr-3" src="./images/avatar/4.png" alt="..."></a>
+                                            <a href="#"><img class="media-object mr-3" src="{{ asset('group/images/avatar/4.png') }}" alt="..."></a>
                                         </div>
                                         <div class="media-body">
                                             <h4 class="media-heading text-primary">john doe</h4>
@@ -464,7 +526,7 @@
                                     </div>
                                     <div class="media">
                                         <div class="media-left">
-                                            <a href="#"><img class="media-object mr-3" src="./images/avatar/2.png" alt="..."></a>
+                                            <a href="#"><img class="media-object mr-3" src="{{ asset('group/images/avatar/2.png') }}"" alt=" ..."></a>
                                         </div>
                                         <div class="media-body">
                                             <h4 class="media-heading text-success">Mr. John</h4>
@@ -474,7 +536,7 @@
                                     </div>
                                     <div class="media no-border">
                                         <div class="media-left">
-                                            <a href="#"><img class="media-object mr-3" src="./images/avatar/3.png" alt="..."></a>
+                                            <a href="#"><img class="media-object mr-3" src="{{ asset('group/images/avatar/3.png') }}" alt="..."></a>
                                         </div>
                                         <div class="media-body">
                                             <h4 class="media-heading text-info">Mr. John</h4>

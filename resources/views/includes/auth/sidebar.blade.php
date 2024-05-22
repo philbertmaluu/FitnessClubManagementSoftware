@@ -68,11 +68,11 @@
 
             @if(Auth::user()->role == 1)
             <li class="nav-label">Users management</li>
-            <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i class="ti-user "></i><span class="nav-text">Administrators</span></a>
+            <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i class="ti-user"></i><span class="nav-text">Administrators</span></a>
                 <ul aria-expanded="false">
                     <li><a href="javascript:void()">Activations</a>
                         <ul aria-expanded="false">
-                            <li><a href="{{  route('trainer.request') }}">Requests</a></li>
+                            <li><a href="javascript:void()">Requests</a></li>
                             <!-- <li><a href="javascript:void()">..</a></li>
                             <li><a href="javascript:void()">Read</a></li> -->
                         </ul>
@@ -88,17 +88,15 @@
                 </ul>
             </li>
 
-            <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i class="ti-user  "></i><span class="nav-text">Trainers</span></a>
+            <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i class="ti-face-sad"></i><span class="nav-text">Trainers</span></a>
                 <ul aria-expanded="false">
-                    <li><a href="javascript:void()">Profile</a></li>
-                    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">Email</a>
+                    <li><a href="javascript:void()">Activations</a>
                         <ul aria-expanded="false">
-                            <li><a href="javascript:void()">Compose</a></li>
-                            <li><a href="javascript:void()">Inbox</a></li>
-                            <li><a href="javascript:void()">Read</a></li>
+                            <li><a href="{{  route('trainer.request') }}">Requests</a></li>
+                            <!-- <li><a href="javascript:void()">..</a></li>
+                            <li><a href="javascript:void()">Read</a></li> -->
                         </ul>
                     </li>
-                    <li><a href="javascript:void()">Calendar</a></li>
                 </ul>
             </li>
             <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i class="ti-face-smile "></i><span class="nav-text">Members</span></a>
