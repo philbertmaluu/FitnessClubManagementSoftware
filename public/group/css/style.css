@@ -2925,8 +2925,9 @@ fieldset:disabled a.btn {
 
 .btn-primary {
     color: #fff;
-    background-color: #593bdb;
-    border-color: #593bdb;
+    background-color: #9999A0;
+    /* background: linear-gradient(90deg, rgba(2, 0, 36, 0.6012998949579832) 0%, rgba(10, 10, 10, 0.3435968137254902) 100%, rgba(5, 5, 5, 0.2399553571428571) 100%); */
+    /* border-color: #593bdb; */
 }
 
 .btn-primary:hover {
@@ -4692,7 +4693,7 @@ input[type="button"].btn-block {
 .nav-pills .nav-link.active,
 .nav-pills .show>.nav-link {
     color: #fff;
-    background-color: #593bdb;
+    background-color: #9999A0;
 }
 
 .nav-fill .nav-item {

@@ -165,7 +165,7 @@
                 <ul aria-expanded="false">
                     <li><a href="javascript:void()">Centers</a></li>
                     <li><a href="javascript:void()">Packages</a></li>
-                    <li><a href="javascript:void()">Import</a></li>
+                    <li><a href="{{  route('admin.user.promotion') }}">Promotion (RBAC)</a></li>
                 </ul>
             </li>
 
