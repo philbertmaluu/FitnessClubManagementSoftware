@@ -16,4 +16,10 @@ class AdminController extends Controller
 
         return view('promotion.index', compact('promotionTrainers', 'promotionAdmin', 'promotionTrainee'));
     }
+
+    public function schedule()
+    {
+
+        return view('admin.schedule.index');
+    }
 }

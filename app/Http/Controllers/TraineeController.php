@@ -18,4 +18,9 @@ class TraineeController extends Controller
 
         return view('trainee.schedule');
     }
+
+    public function trainingschedule()
+    {
+        return view('trainee.schedule');
+    }
 }
