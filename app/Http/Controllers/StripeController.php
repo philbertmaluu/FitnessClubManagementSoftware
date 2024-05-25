@@ -3,15 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
-
 use Illuminate\Http\RedirectResponse;
 use Stripe\Checkout\Session;
 use Stripe\Exception\ApiErrorException;
 use Stripe\Stripe;
+use App\Models\User;
 
 class StripeController extends Controller
 {
@@ -32,21 +33,21 @@ class StripeController extends Controller
         Stripe::setApiKey(config('stripe.test.sk'));
 
         $session = Session::create([
-            'line_items'  => [
+            'line_items' => [
                 [
                     'price_data' => [
-                        'currency'     => 'gbp',
+                        'currency' => 'tzs',
                         'product_data' => [
-                            'name' => 'T-shirt',
+                            'name' => 'Premium plan',
                         ],
-                        'unit_amount'  => 500,
+                        'unit_amount' => 125000, // Updated amount
                     ],
-                    'quantity'   => 1,
+                    'quantity' => 1,
                 ],
             ],
-            'mode'        => 'payment',
+            'mode' => 'payment',
             'success_url' => route('success'),
-            'cancel_url'  => route('checkout'),
+            'cancel_url' => route('checkout'),
         ]);
 
         return redirect()->away($session->url);
@@ -61,35 +62,39 @@ class StripeController extends Controller
         Stripe::setApiKey(config('stripe.live.sk'));
 
         $session = Session::create([
-            'line_items'  => [
+            'line_items' => [
                 [
                     'price_data' => [
-                        'currency'     => 'gbp',
+                        'currency' => 'tzs',
                         'product_data' => [
-                            'name' => 'T-shirt',
+                            'name' => 'Premium plan',
                         ],
-                        'unit_amount'  => 500,
+                        'unit_amount' => 150000,
                     ],
-                    'quantity'   => 1,
+                    'quantity' => 1,
                 ],
             ],
-            'mode'        => 'payment',
+            'mode' => 'payment',
             'success_url' => route('success'),
-            'cancel_url'  => route('checkout'),
+            'cancel_url' => route('checkout'),
         ]);
 
         return redirect()->away($session->url);
     }
 
     /**
-     * @return View|Factory|Application
+     * @return RedirectResponse
      */
-    public function success()
+    public function success(): RedirectResponse
     {
-        if (true) {
-            return back()->with('success', 'Payment to GYM07  went successfully.');
-        } else {
-            return back()->with('error', 'Something went wrong with payments.');
+        $user = Auth::user();
+        if ($user) {
+            $user->is_active = 1;
+            $user->save();
+
+            return redirect()->route('trainee.home')->with('success', 'Payment to GYM07 went successfully.');
         }
+
+        return back()->with('error', 'Something went wrong with payments.');
     }
 }

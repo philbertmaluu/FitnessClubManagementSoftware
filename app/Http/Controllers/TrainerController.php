@@ -17,8 +17,9 @@ class TrainerController extends Controller
 
         // $user = Auth::user()->id;
         // dd($user);
+        $levels = Level::all();
         $admins = User::where('role', 1)->get();
-        return view('trainer.index', compact('admins'));
+        return view('trainer.index', compact('admins', 'levels'));
     }
 
     public function store(Request $request)

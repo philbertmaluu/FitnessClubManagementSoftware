@@ -14,9 +14,10 @@ use App\Http\Controllers\TrainerController;
 use App\Http\Controllers\TraineeController;
 use App\Http\Controllers\ActivationController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\MealPlanController;
 use App\Http\Controllers\StripeController;
-
-
+use App\Http\Controllers\TraineeNotificationController;
+use App\Http\Controllers\TraineeProgressController;
 
 Route::get('/', function () {
     return view('auth.login');
@@ -32,50 +33,55 @@ Route::middleware('auth')->group(function () {
 });
 
 //-------------------------admin routes----------------------//
-Route::get('/trainer/activation/accept/{id}', [ActivationController::class, 'activationAccept'])->name('activate');
-Route::get('/trainer/activation/cancel/{id}', [ActivationController::class, 'activationCancel'])->name('cancel');
-Route::get('admin/settings/promotion', [AdminController::class, 'trainerPromotion'])->name('admin.user.promotion');
+Route::get('/trainer/activation/accept/{id}', [ActivationController::class, 'activationAccept'])->middleware(['auth', 'verified'])->name('activate');
+Route::get('/trainer/activation/cancel/{id}', [ActivationController::class, 'activationCancel'])->middleware(['auth', 'verified'])->name('cancel');
+Route::get('admin/settings/promotion', [AdminController::class, 'trainerPromotion'])->middleware(['auth', 'verified'])->name('admin.user.promotion');
 Route::get('admin/trainer/activation/requests', [TrainerController::class, 'activation_request'])->middleware(['auth', 'verified'])->name('trainer.request');
-
+Route::get('admin/calendar/schedule', [AdminController::class, 'schedule'])->middleware(['auth', 'verified'])->name('admin.calendar_schedule');
 
 
 //-------------------pricing  plan routes-------------------//
 Route::resource('pricing/plans', PlanController::class)->middleware(['auth']);
-Route::post('pricing/plans', [PlanController::class, 'store'])->name('pricing.plans.store');
-Route::put('pricing/plans', [PlanController::class, 'update'])->name('pricing.plans.update');
+Route::post('pricing/plans', [PlanController::class, 'store'])->middleware(['auth', 'verified'])->name('pricing.plans.store');
+Route::put('pricing/plans', [PlanController::class, 'update'])->middleware(['auth', 'verified'])->name('pricing.plans.update');
+Route::post('pricing/plans', [PlanController::class, 'store'])->middleware(['auth', 'verified'])->name('pricing.plans.store');
+Route::put('pricing/plans', [PlanController::class, 'update'])->middleware(['auth', 'verified'])->name('pricing.plans.update');
+
 
 // ---------------- trainee routes--------------------//
 Route::get('/trainee/dashboard', [ProfileController::class, 'view'])->name('trainee.home');
-Route::get('/trainee/calendar/schedule', [TraineeController::class, 'schedule'])->name('schedule_calendar');
 Route::get('/trainee/dashboard', [TraineeController::class, 'index'])->middleware(['auth', 'verified'])->name('trainee.home');
 Route::get('/trainee/calendar/schedule', [TraineeController::class, 'schedule'])->middleware(['auth', 'verified'])->name('schedule_calendar');
+Route::get('/trainee/calendar/schedule', [TraineeController::class, 'trainingschedule'])->name('trainee.schedule');
+Route::get('/trainee/mealplanning/meal', [MealPlanController::class, 'meal_index'])->middleware(['auth', 'verified'])->name('trainee.meal');
+Route::get('/trainee/mealplanning/supplimets', [MealPlanController::class, 'suppliment_index'])->middleware(['auth', 'verified'])->name('trainee.suppliment');
+Route::get('/trainee/progress/progress', [TraineeProgressController::class, 'progress_index'])->middleware(['auth', 'verified'])->name('trainee.progress');
+Route::get('/trainee/progress/attendance', [TraineeProgressController::class, 'attendance_index'])->middleware(['auth', 'verified'])->name('trainee.attendance');
+Route::get('/trainee/progress/notes', [TraineeProgressController::class, 'notes_index'])->middleware(['auth', 'verified'])->name('trainee.notes');
+Route::get('/trainee/notifications/messeges', [TraineeNotificationController::class, 'messeges_index'])->middleware(['auth', 'verified'])->name('trainee.messeges');
+Route::get('/trainee/notifications/nutrition&health', [TraineeNotificationController::class, 'nutrition_index'])->middleware(['auth', 'verified'])->name('trainee.nutrition');
+
 
 
 //----------------trainer routes-----------------------//
 Route::get('/trainer/dashboard', [TrainerController::class, 'index'])->name('trainer.home');
 Route::get('/trainer/activation/request', [TrainerController::class, 'activation_request'])->middleware(['auth', 'verified'])->name('trainer.request');
 Route::post('/trainer/activation', [NotificationController::class, 'store'])->name('activation');
-//Route::post('/trainer/calendar/',[ScheduleController::class,'store'])->middleware(['auth', 'verified'])->name('schedule_calendar');
 Route::get('/trainer/dashboard', [TrainerController::class, 'index'])->middleware(['auth', 'verified'])->name('trainer.home');
 Route::get('admin/trainer/activation/requests', [TrainerController::class, 'activation_request'])->middleware(['auth', 'verified'])->name('trainer.request');
 Route::get('/trainer/level', [TrainerController::class, 'createLevel'])->middleware(['auth', 'verified'])->name('trainer.levels');
 Route::post('/trainer/level/store', [TrainerController::class, 'levelStore'])->middleware(['auth', 'verified'])->name('trainer.levels.store');
+Route::get('/trainee/calendar/schedule', [TraineeController::class, 'schedule'])->middleware(['auth', 'verified'])->name('trainer.schedule_calendar');
+
 
 // ------------------notification route----------//
 // Route::post('/trainer/dashboard', [TrainerController::class,'store'])->name('');
 
-// ----------------pricing plans-----------//
-Route::post('pricing/plans', [PlanController::class, 'store'])->middleware(['auth', 'verified'])->name('pricing.plans.store');
-Route::put('pricing/plans', [PlanController::class, 'update'])->middleware(['auth', 'verified'])->name('pricing.plans.update');
+
+
 
 
 //stripe payment intergration
-
-//Route::get('/', 'App\Http\Controllers\StripeController@checkout')->name('checkout');
-// Route::post('/test', [StripeController::class], 'test');
-// Route::post('/live', [StripeController::class], 'live');
-// Route::get('/success', [StripeController::class], 'success')->name('success');
-
 
 Route::get('/checkout', [StripeController::class, 'checkout'])->name('checkout');
 Route::post('/test', [StripeController::class, 'test'])->name('test');

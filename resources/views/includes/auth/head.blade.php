@@ -106,7 +106,7 @@
                                 <i class="ti-email"></i>
                                 <span class="ml-2">Inbox </span>
                             </a>
-                            @if(Auth::user()->role == 1 && Auth::user()->role == 3)
+                            @if(Auth::user()->role == 1 && Auth::user()->role == 2)
                             <a href="{{ url('pricing/plans')}}" class="dropdown-item">
                                 <i class="ti-layout-grid2"></i>
                                 <span class="ml-2">Plans</span>
