@@ -17,6 +17,22 @@
 
         <div class="content-body">
             <div class="container-fluid">
+
+                <!----------alert starts------------>
+                @if(session('success'))
+                <div class="alert alert-success alert-dismissible alert-alt fade show">
+                    <button type="button" class="close h-100" data-dismiss="alert" aria-label="Close"><span><i class="mdi mdi-close"></i></span></button>
+                    {{ session('success') }}
+                </div>
+                @elseif(session('error'))
+                <div class="alert alert-danger alert-dismissible alert-alt fade show">
+                    <button type="button" class="close h-100" data-dismiss="alert" aria-label="Close"><span><i class="mdi mdi-close"></i></span>
+                    </button>
+                    {{ session('error') }}
+                </div>
+                @endif
+
+                <!---------alert ends----------->
                 <div class="row page-titles mx-0">
                     <div class="col-sm-6 p-md-0">
                         <div class="welcome-text">
@@ -35,6 +51,7 @@
                 </div>
                 <!-- row -->
                 <div class="row">
+
                     <div class="col-xl-12 col-xxl-12">
                         <div class="card">
                             <div class="card-header">
@@ -201,8 +218,31 @@
                                                             <span class="mail-icon">
                                                                 <i class="mdi mdi-google-plus" aria-hidden="true"></i>
                                                             </span>
+
+
+
                                                             <span class="mail-text">Google pay</span>
                                                         </label>
+                                                        <div class="row mt-5 mb-5">
+                                                            <div class="col-4"></div>
+                                                            <div class="col-2">
+                                                                <form action="/test" method="POST">
+                                                                    @csrf
+                                                                    <input type="hidden">
+                                                                    <button type="submit" id="checkout-test-button" class="btn btn-primary">Checkout (Test)</button>
+                                                                </form>
+                                                            </div>
+
+                                                            <div class="col-2">
+                                                                <form action="/live" method="POST">
+                                                                    @csrf
+                                                                    <input type="hidden">
+                                                                    <button type="submit" id="checkout-live-button" class="btn btn-success">Checkout (LIVE)</button>
+                                                                </form>
+                                                            </div>
+
+                                                            <div class="col-4"></div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-3 col-6">
