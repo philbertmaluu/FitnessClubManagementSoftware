@@ -78,7 +78,9 @@
                                 <div class="modal-header">
                                     <h4 class="modal-title"><strong>Add New Event</strong></h4>
                                 </div>
-                                <div class="modal-body"></div>
+                                <div class="modal-body">
+
+                                </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Close</button>
                                     <button type="button" class="btn btn-success save-event waves-effect waves-light">Create
