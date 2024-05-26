@@ -10,7 +10,9 @@ use Illuminate\Support\Facades\Auth;
 class ScheduleController extends Controller{
     public function index()
     {
-        return view("trainer.index", compact("schedule"));
+         $admins = User::where ('role',3)->get();
+        
+        return view("trainer.index", compact("admins"));
     }
 
     public function create()
@@ -22,7 +24,6 @@ class ScheduleController extends Controller{
     public function store(Request $request)
     {
        $validator = $request->validate([
-         $admin = User::where ('role',3)->get(),
          'level_id' =>'required|exists:level,id',
          'activity_id' =>'required|exists:activity,id',
          'trainer_id'=> 'required|exists:trainer,id',
@@ -30,7 +31,7 @@ class ScheduleController extends Controller{
          'end_time' => 'required|date|after:start_time',
 
          
-]);
+        ]);
 
                 $schedule = new schedule;
                 $schedule -> level_id= $request->id;

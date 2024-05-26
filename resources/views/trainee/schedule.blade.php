@@ -46,12 +46,16 @@
                                 <div class="">
                                     <div id="external-events" class="my-3">
                                         <p>Drag and drop your event or click in the calendar</p>
-                                        <div class="external-event" data-class="bg-primary"><i class="fa fa-move"></i>New Theme Release</div>
-                                        <div class="external-event" data-class="bg-success"><i class="fa fa-move"></i>My Event
-                                        </div>
-                                        <div class="external-event" data-class="bg-warning"><i class="fa fa-move"></i>Meet manager</div>
+                                        <ul>
+                                        <li><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#basicModal">Begginer</button></li>
+                                        <br>
+                                        <li><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#basicModal">Amateur</button><li>
+                                        <br>
+                                        <li><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#basicModal">Proffesional</button></li>
                                         <div class="external-event" data-class="bg-dark"><i class="fa fa-move"></i>Create New theme</div>
+                                       <ul>
                                     </div>
+                        
                                     <!-- checkbox -->
                                     <div class="checkbox checkbox-event pt-3 pb-5">
                                         <input id="drop-remove" class="styled-checkbox" type="checkbox">
@@ -72,32 +76,56 @@
                         </div>
                     </div>
                     <!-- BEGIN MODAL -->
+                    <!------------------------>
+                    <!---------Schedule activity begins--------->
                     <div class="modal fade none-border" id="event-modal">
                         <div class="modal-dialog">
+                            <!--------modal content--->
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h4 class="modal-title"><strong>Add New Event</strong></h4>
                                 </div>
-                                <div class="modal-body"></div>
+                                <!----Content of the schedule activity starts here----->
+                                <div class="modal-body">
+                                    <form>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                            <label class="control-label">Category Name</label>
+                                            <input class="form-control form-white" placeholder="Enter name" type="text" name="category-name"> 
+                                           </div>
+                                        </div>
+                                    </form>
+                                        
+                                </div>
+                                <!-----schedule acvtivity body ends here------------>
+                                <!-------footer starts here-------->
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-success save-event waves-effect waves-light">Create
+                                    <button type="submit" class="btn btn-success save-event waves-effect waves-light">Create
                                         event</button>
 
                                     <button type="button" class="btn btn-danger delete-event waves-effect waves-light" data-dismiss="modal">Delete</button>
                                 </div>
+                                <!---------footer ends here-------->
                             </div>
+                            <!-------- content ends here--------->
                         </div>
+                        <!--------dialog ends-------------->
                     </div>
-                    <!-- Modal Add Category -->
+                    <!---------Schedule activity ends----------->
+                <!------------------------------------------------------->
+                    <!-- Modal for Adding Schedule Category begins here -->
                     <div class="modal fade none-border" id="add-category">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h4 class="modal-title"><strong>Add a category</strong></h4>
                                 </div>
+                                <!---------body of the schedule modal begins here-------->
                                 <div class="modal-body">
-                                    <form>
+                                    @csrf
+                                    <form action="{{route('trainer.schedule.store')}}" method="POST">
+                                        <!--------row begins----------->
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <label class="control-label">Category Name</label>
@@ -114,16 +142,41 @@
                                                     <option value="warning">Warning</option>
                                                 </select>
                                             </div>
+                                             <div class="col-md-6">
+                                                <label class="control-label">Location</label>
+                                                <input class="form-control form-white" placeholder="venue" type="text" name="location">
+                                            </div>
+                                             <div class="col-md-6">
+                                               <label class="control-label">Allocated trainer</label>
+                                               {{-- <select class="js-select2 form-control" id="val-select2" name="trainer_id" style="width: 100%;" data-placeholder="Choose one..">
+                                                @foreach ( $admins as $admin )
+                                                <option value="{{ $admin->id}}">{{ $admin->username}}</option>
+                                                @endforeach
+                                                </select> --}}
+                                            </div>
+
+                                            <div class="col-md-12">
+                                                <label class="control-label">Activity</label>
+                                                <input class="form-control form-white" placeholder="event" type="text" name="Activity_id">
+                                            </div>
+
+                                             <div class="col-md-12">
+                                                <label class="control-label">Description</label>
+                                               <input class="form-control form-white" placeholder="description" type="text" name="description">
+                                            </div>
                                         </div>
+                                        <!-------row ends--------->
                                     </form>
                                 </div>
+                                <!---------body of the schedule ends here---------->
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-danger waves-effect waves-light save-category" data-dismiss="modal">Save</button>
+                                    <button type="submit" class="btn btn-danger waves-effect waves-light save-category" data-dismiss="modal">Save</button>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <!------modal ends here---------->
                 </div>
 
             </div>

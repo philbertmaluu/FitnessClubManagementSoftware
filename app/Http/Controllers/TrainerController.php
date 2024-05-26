@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\notification;
 use App\Models\User;
 use App\Models\schedule;
+use App\Models\suppliments;
 use SebastianBergmann\Type\TrueType;
 use Illuminate\Support\Facades\Auth;
 
@@ -85,4 +86,11 @@ class TrainerController extends Controller
             return redirect()->back()->with('error', 'Something went wrong.');
         }
     }
+
+       public function createmeal_plan()
+       {
+           $suppliments = suppliments::all();
+           return view('suppliments.index', compact('suppliments'));
+       }
+    
 }

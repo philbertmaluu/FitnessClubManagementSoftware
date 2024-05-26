@@ -80,7 +80,7 @@
 
                                                                     <div class="form-group row">
                                                                         <label class="col-lg-12" for="val-text">Description<span class="text-danger"></span></label>
-                                                                        <div class="col-lg-16">
+                                                                        <div class="col-lg-12">
                                                                             <textarea type="text" class="form-control" id="val-description" name="description" placeholder="enter description" cols="40" rows="10"></textarea>
                                                                         </div>
                                                                     </div>
