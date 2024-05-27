@@ -15,6 +15,9 @@ return new class extends Migration
             $table->id();
             $table->integer('level_id');
             $table->string('suppliment');
+            $table->string('foodname');
+            $table->string('foodimage');
+            $table->string('created_by');
             $table->timestamps();
         });
     }

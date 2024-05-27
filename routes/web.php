@@ -67,12 +67,28 @@ Route::get('/trainee/notifications/nutrition&health', [TraineeNotificationContro
 Route::get('/trainer/dashboard', [TrainerController::class, 'index'])->name('trainer.home');
 Route::get('/trainer/activation/request', [TrainerController::class, 'activation_request'])->middleware(['auth', 'verified'])->name('trainer.request');
 Route::post('/trainer/activation', [NotificationController::class, 'store'])->name('activation');
+Route::post('/trainer/schedule/store',[ScheduleController::class,'store'])->middleware(['auth', 'verified'])->name('trainer.schedule.store');
+
+// ------------------notification route----------//
+// Route::post('/trainer/dashboard', [TrainerController::class,'store'])->name('');
+
+// ----------------pricing plans-----------//
+Route::post('pricing/plans', [PlanController::class, 'store'])->middleware(['auth', 'verified'])->name('pricing.plans.store');
+Route::put('pricing/plans', [PlanController::class, 'update'])->middleware(['auth', 'verified'])->name('pricing.plans.update');
+
+//-------------------trainee routes ----------------------//
+Route::get('/trainee/dashboard', [TraineeController::class, 'index'])->middleware(['auth', 'verified'])->name('trainee.home');
+Route::get('/trainee/calendar/schedule', [TraineeController::class, 'schedule'])->middleware(['auth', 'verified'])->name('schedule_calendar');
+
+
+//----------------trainer routes-----------------------//
 Route::get('/trainer/dashboard', [TrainerController::class, 'index'])->middleware(['auth', 'verified'])->name('trainer.home');
 Route::get('admin/trainer/activation/requests', [TrainerController::class, 'activation_request'])->middleware(['auth', 'verified'])->name('trainer.request');
 Route::get('/trainer/level', [TrainerController::class, 'createLevel'])->middleware(['auth', 'verified'])->name('trainer.levels');
 Route::post('/trainer/level/store', [TrainerController::class, 'levelStore'])->middleware(['auth', 'verified'])->name('trainer.levels.store');
+Route::get('/trainer/suppliments/dashboard',[TrainerController::class,'createmeal_plan'])->middleware(['auth','verified'])->name('trainer.suppliments');
 Route::get('/trainee/calendar/schedule', [TraineeController::class, 'schedule'])->middleware(['auth', 'verified'])->name('trainer.schedule_calendar');
-
+Route::post('/trainer/suppliments/store',[TrainerController::class,'meal_planstore'])->middleware(['auth','verified'])->name('trainer.suppliments.store');
 
 // ------------------notification route----------//
 // Route::post('/trainer/dashboard', [TrainerController::class,'store'])->name('');
