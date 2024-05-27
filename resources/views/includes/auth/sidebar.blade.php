@@ -11,13 +11,71 @@
                     @if(Auth::user()->role == 1)
                     <li><a href="{{ route('dashboard')}}">Dashboard</a></li>
                     @endif
+                    <!--------All tha navigation that can be seen by all----->
 
-                    @if(Auth::user()->role == 3)
+                    @if(Auth::user()->role == 3 )
                     <li><a href="{{ route('trainer.home')}}">Dashboard</a></li>
-                    <li><a href="{{ route('schedule_calendar')}}">Schedule</a></li>
+                    @endif
+
+                    @if(Auth::user()->role == 2 )
+                    <li><a href="{{ route('trainee.home')}}">Dashboard</a></li>
                     @endif
                 </ul>
             </li>
+            @if(Auth::user()->role == 2 )
+            <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i class="ti-calendar"></i><span class="nav-text">Calendar</span></a>
+                <ul aria-expanded="false">
+                    <li><a href="{{ route('trainee.schedule')}}">Schedule</a></li>
+                </ul>
+            </li>
+            @endif
+            @if(Auth::user()->role == 1 )
+            <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i class="ti-calendar"></i><span class="nav-text">Calendar</span></a>
+                <ul aria-expanded="false">
+                    <li><a href="{{ route('admin.calendar_schedule')}}">Schedule</a></li>
+                </ul>
+            </li>
+            @endif
+            @if(Auth::user()->role == 3 )
+            <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i class="ti-calendar"></i><span class="nav-text">Calendar</span></a>
+                <ul aria-expanded="false">
+                    <li><a href="{{ route('trainer.schedule_calendar')}}">Schedule</a></li>
+                </ul>
+            </li>
+            @endif
+
+            @if(Auth::user()->role == 2)
+            <li class="nav-label">Meal Planning</li>
+            <li><a href="{{ route('trainee.meal') }}" aria-expanded="false"><i class="ti-thought"></i><span class="nav-text">Meal</span></a></li>
+            <li><a href="{{ route('trainee.suppliment') }}" aria-expanded="false"><i class="ti-shine"></i><span class="nav-text">Suppliments</span></a></li>
+
+            <li class="nav-label">Progress Tracking</li>
+            <li><a href="{{ route('trainee.progress') }}" aria-expanded="false"><i class="ti-bar-chart-alt"></i><span class="nav-text">Progress</span></a></li>
+            <li><a href="{{ route('trainee.attendance') }}" aria-expanded="false"><i class="ti-check-box"></i><span class="nav-text">Attendance</span></a></li>
+            <li><a href="{{ route('trainee.notes') }}" aria-expanded="false"><i class="ti-notepad"></i><span class="nav-text">Notes</span></a></li>
+
+
+            <li class="nav-label">Notifications</li>
+            <li><a href="{{ route('trainee.messeges') }}" aria-expanded="false"><i class="ti-comment-alt"></i><span class="nav-text">Messeges</span></a></li>
+            <li><a href="{{ route('trainee.nutrition') }}" aria-expanded="false"><i class="ti-pulse"></i><span class="nav-text">Nutrition And Health</span></a></li>
+            <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i class="ti-email"></i><span class="nav-text">Emails</span></a>
+                <ul aria-expanded="false">
+                    <li><a href="javascript:void()">Compose</a></li>
+                    <li><a href="javascript:void()">Inbox</a></li>
+                    <li><a href="javascript:void()">Read</a></li>
+                </ul>
+            </li>
+
+            <li class="nav-label">Settings</li>
+            <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i class="ti-settings"></i><span class="nav-text">Settings</span></a>
+                <ul aria-expanded="false">
+                    <li><a href="{{ url('user/profile')}}">Profile</a></li>
+                    <li><a href="{{ url('pricing/plans')}}">Pricing Plan</a></li>
+                </ul>
+            </li>
+
+
+            @endif
 
             @if(Auth::user()->role == 3)
             <li class="nav-label">Training Facilities</li>
@@ -50,10 +108,20 @@
                             <li><a href="javascript:void()">....</a></li>
                         </ul>
                     </li>
-
                 </ul>
             </li>
 
+
+            <li class="nav-label">Notifications</li>
+            <li><a href="{{ route('trainee.messeges') }}" aria-expanded="false"><i class="ti-comment-alt"></i><span class="nav-text">Messeges</span></a></li>
+            <li><a href="{{ route('trainee.nutrition') }}" aria-expanded="false"><i class="ti-pulse"></i><span class="nav-text">Nutrition And Health</span></a></li>
+            <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i class="ti-email"></i><span class="nav-text">Emails</span></a>
+                <ul aria-expanded="false">
+                    <li><a href="javascript:void()">Compose</a></li>
+                    <li><a href="javascript:void()">Inbox</a></li>
+                    <li><a href="javascript:void()">Read</a></li>
+                </ul>
+            </li>
 
             <li class="nav-label">Settings</li>
             <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i class="ti-settings"></i><span class="nav-text">Settings</span></a>

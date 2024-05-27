@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class suppliments extends Model
 {
     use HasFactory;
+    protected $fillable =
+    [
+      'level_id',
+      'suppliment',
+      'foodimage',
+      'foodname',
+      'created_by',  
+    ];
 }

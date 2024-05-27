@@ -18,8 +18,9 @@ class TrainerController extends Controller
 
         // $user = Auth::user()->id;
         // dd($user);
+        $levels = Level::all();
         $admins = User::where('role', 1)->get();
-        return view('trainer.index', compact('admins'));
+        return view('trainer.index', compact('admins', 'levels'));
     }
 
     public function store(Request $request)
@@ -92,5 +93,39 @@ class TrainerController extends Controller
            $suppliments = suppliments::all();
            return view('suppliments.index', compact('suppliments'));
        }
-    
-}
+
+       public function meal_planstore(Request $request)
+       {
+        $validator = $request->validate([
+                
+                'foodname'=>'required','string',
+                'foodimage' => 'nullable|file|mimes:jpg,jpeg,png|max:2048',
+                'created_by' => 'required|string',
+                
+            ]
+            );
+
+        // Handle the file upload
+        if ($request->hasFile('foodimage')) {
+            $file = $request->file('foodimage');
+            $path = $file->store('foodimages', 'public'); // Store the file in the public disk's foodimages directory
+        } else {
+            $path = null;
+        }
+             $user =Auth::user()->id;
+            $suppliments = new suppliments;
+            $suppliments -> level_id =$request->id;
+            $suppliments -> suppliment =$request -> suppliment;
+            $suppliments -> foodname =$request-> foodname;
+            $suppliments ->foodimage = $path;
+            $suppliments -> created_by =$request->created_by;
+            $suppliments-> save();
+
+        if ($suppliments) {
+            return redirect()->back()->with('success', 'Mealplan created successfully.');
+        } else {
+            return redirect()->back()->with('error', 'Something went wrong.');
+        } 
+         }    
+        
+    }

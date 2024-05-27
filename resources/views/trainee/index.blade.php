@@ -11,19 +11,41 @@
         @include('includes.auth.head')
 
 
+        @if(Auth::user()->is_active == 1)
         @include('includes.auth.sidebar')
+        @endif
 
         <!--Content body start-->
 
         <div class="content-body">
             <div class="container-fluid">
+
+                <!----------alert starts------------>
+                @if(session('success'))
+                <div class="alert alert-success alert-dismissible alert-alt fade show">
+                    <button type="button" class="close h-100" data-dismiss="alert" aria-label="Close"><span><i class="mdi mdi-close"></i></span></button>
+                    {{ session('success') }}
+                </div>
+                @elseif(session('error'))
+                <div class="alert alert-danger alert-dismissible alert-alt fade show">
+                    <button type="button" class="close h-100" data-dismiss="alert" aria-label="Close"><span><i class="mdi mdi-close"></i></span>
+                    </button>
+                    {{ session('error') }}
+                </div>
+                @endif
+
+                <!---------alert ends----------->
                 <div class="row page-titles mx-0">
                     <div class="col-sm-6 p-md-0">
                         <div class="welcome-text">
                             @auth
                             <h4>Hi, {{ Auth::user()->username }} welcome back!</h4>
                             @endauth
-                            <p class="mb-0">Manage your workout activities</p>
+                            @if(Auth::user()->is_active == 1)
+                            <p class="mb-0">Setup your account and let us manage your workours</p>
+                            @else
+                            <p class="mb-0">Manage ur workouts with us</p>
+                            @endif
                         </div>
                     </div>
                     <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
@@ -34,6 +56,7 @@
                     </div>
                 </div>
                 <!-- row -->
+                @if(Auth::user()->is_active == 0)
                 <div class="row">
                     <div class="col-xl-12 col-xxl-12">
                         <div class="card">
@@ -201,8 +224,31 @@
                                                             <span class="mail-icon">
                                                                 <i class="mdi mdi-google-plus" aria-hidden="true"></i>
                                                             </span>
+
+
+
                                                             <span class="mail-text">Google pay</span>
                                                         </label>
+                                                        <div class="row mt-5 mb-5">
+                                                            <div class="col-4"></div>
+                                                            <div class="col-2">
+                                                                <form action="/test" method="POST">
+                                                                    @csrf
+                                                                    <input type="hidden">
+                                                                    <button type="submit" id="checkout-test-button" class="btn btn-primary">Checkout (Test)</button>
+                                                                </form>
+                                                            </div>
+
+                                                            <div class="col-2">
+                                                                <form action="/live" method="POST">
+                                                                    @csrf
+                                                                    <input type="hidden">
+                                                                    <button type="submit" id="checkout-live-button" class="btn btn-success">Checkout (LIVE)</button>
+                                                                </form>
+                                                            </div>
+
+                                                            <div class="col-4"></div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-3 col-6">
@@ -255,6 +301,207 @@
                         </div>
                     </div>
                 </div>
+                @else
+
+                <div class="row">
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="card">
+                            <div class="stat-widget-two card-body">
+                                <div class="stat-content">
+                                    <div class="stat-text">Exercise </div>
+                                    <div class="stat-digit"> Badmintoon</div>
+                                </div>
+                                <div class="progress">
+                                    <div class="progress-bar progress-bar-success w-85" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="card">
+                            <div class="stat-widget-two card-body">
+                                <div class="stat-content">
+                                    <div class="stat-text">Cardio</div>
+                                    <div class="stat-digit">Jooging</div>
+                                </div>
+                                <div class="progress">
+                                    <div class="progress-bar progress-bar-primary w-75" role="progressbar" aria-valuenow="78" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="card">
+                            <div class="stat-widget-two card-body">
+                                <div class="stat-content">
+                                    <div class="stat-text">Max Cardio</div>
+                                    <div class="stat-digit">Body Building</div>
+                                </div>
+                                <div class="progress">
+                                    <div class="progress-bar progress-bar-warning w-50" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="card">
+                            <div class="stat-widget-two card-body">
+                                <div class="stat-content">
+                                    <div class="stat-text">Aquatic Cardio</div>
+                                    <div class="stat-digit">Swimming</div>
+                                </div>
+                                <div class="progress">
+                                    <div class="progress-bar progress-bar-danger w-65" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /# card -->
+                    </div>
+                    <!-- /# column -->
+                </div>
+                <div class="row">
+
+                    <div class="col-lg-8 col-sm-8 col-md-8">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Exercise Time</h4>
+                            </div>
+                            <div class="card-body">
+                                <div id="morris_bar" class="morris_chart_height"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-4 col-lg-4 col-md-4">
+                        <div class="card">
+                            <div class="card-body text-center">
+                                <div class="m-t-10">
+                                    <h4 class="card-title">Wellness</h4>
+                                    <h2 class="mt-3">18,293.23</h2>
+                                    <small>Kcal Totally <span>+10%</span></small>
+                                </div>
+                                <div class="widget-card-circle mt-5 mb-5" id="info-circle-card">
+                                    <i class="ti-control-shuffle pa"></i>
+                                </div>
+                                <ul class="widget-line-list m-b-15">
+                                    <li class="border-right">62kg<br><span class="text-success"><i class="ti-hand-point-up"></i> Weight</span></li>
+                                    <li>18% <br><span class="text-danger"><i class="ti-hand-point-down"></i>Fat Totally</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-8">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Yearly Transactions</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table mb-0">
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Plan</th>
+                                                <th>Month</th>
+                                                <th>Bank(a/c)</th>
+                                                <th>Amount</th>
+                                                <th>Status</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <div class="round-img">
+                                                        <a href=""><img width="35" src="{{ asset('group/images/avatar/1.png') }}" alt=""></a>
+                                                    </div>
+                                                </td>
+                                                <td>Premium</td>
+                                                <td><span>January</span></td>
+                                                <td><span>3953 07 245 3498</span></td>
+                                                <td><span>500,000</span></td>
+                                                <td><span class="badge badge-success">Payed</span></td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>
+                                                    <div class="round-img">
+                                                        <a href=""><img width="35" src="{{ asset('group/images/avatar/1.png') }}" alt=""></a>
+                                                    </div>
+                                                </td>
+                                                <td>Premium</td>
+                                                <td><span>January</span></td>
+                                                <td><span>3953 07 245 3498</span></td>
+                                                <td><span>500,000</span></td>
+                                                <td><span class="badge badge-success">Payed</span></td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>
+                                                    <div class="round-img">
+                                                        <a href=""><img width="35" src="{{ asset('group/images/avatar/1.png') }}" alt=""></a>
+                                                    </div>
+                                                </td>
+                                                <td>Premium</td>
+                                                <td><span>January</span></td>
+                                                <td><span>3953 07 245 3498</span></td>
+                                                <td><span>500,000</span></td>
+                                                <td><span class="badge badge-warning">Pending</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="round-img">
+                                                        <a href=""><img width="35" src="{{ asset('group/images/avatar/1.png') }}" alt=""></a>
+                                                    </div>
+                                                </td>
+                                                <td>Basic</td>
+                                                <td><span>May</span></td>
+                                                <td><span>-</span></td>
+                                                <td><span>500,000</span></td>
+                                                <td><span class="badge badge-danger">Not payed</span></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-4 col-xxl-6 col-lg-6 col-md-6 col-sm-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Todo</h4>
+                            </div>
+                            <div class="card-body px-0">
+                                <div class="todo-list">
+                                    <div class="tdl-holder">
+                                        <div class="tdl-content widget-todo mr-4">
+                                            <ul id="todo_list">
+                                                <li><label><input type="checkbox"><i></i><span>Get up</span><a href='#' class="ti-trash"></a></label></li>
+                                                <li><label><input type="checkbox" checked><i></i><span>Stand up</span><a href='#' class="ti-trash"></a></label></li>
+                                                <li><label><input type="checkbox"><i></i><span>Don't give up the
+                                                            fight.</span><a href='#' class="ti-trash"></a></label></li>
+                                                <li><label><input type="checkbox" checked><i></i><span>Do something
+                                                            else</span><a href='#' class="ti-trash"></a></label></li>
+                                                <li><label><input type="checkbox" checked><i></i><span>Stand up</span><a href='#' class="ti-trash"></a></label></li>
+                                                <li><label><input type="checkbox"><i></i><span>Don't give up the
+                                                            fight.</span><a href='#' class="ti-trash"></a></label></li>
+                                            </ul>
+                                        </div>
+                                        <div class="px-4">
+                                            <input type="text" class="tdl-new form-control" placeholder="Write new item and hit 'Enter'...">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                @endif
             </div>
         </div>
 

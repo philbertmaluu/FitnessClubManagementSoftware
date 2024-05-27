@@ -28,6 +28,11 @@
     <!-- Toastr -->
     <link rel="stylesheet" href="{{ asset('group/vendor/toastr/css/toastr.min.css') }}">
 
+    <!-----------------trainee dashboard resources-------------->
+    <link rel="stylesheet" href="{{ asset('group/vendor/owl-carousel/css/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('group/vendor/owl-carousel/css/owl.theme.default.min.css') }}">
+    <link href="{{ asset('group/vendor/jqvmap/css/jqvmap.min.css') }}" rel="stylesheet">
+
     <!-------datatable implementation falls here------->
     <!-- Standard
     <link rel="shortcut icon" href="http://placehold.it/64.png/000/fff">

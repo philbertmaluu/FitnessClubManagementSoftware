@@ -16,12 +16,6 @@ class adminContoller extends Controller
         $memberCount  = User::where('role', 3)->count();
         $trainerCount = User::where('role', 2)->count();
         $activeUsers  = User::where('role', 3)->where('is_active', 1)->count();
-
-
-
-
-
-
-        return view('Dashboard.index', compact('users', 'adminCount', 'memberCount', 'trainerCount', 'activeUsers'));
+        return view('admin.index', compact('users', 'adminCount', 'memberCount', 'trainerCount', 'activeUsers'));
     }
 }
