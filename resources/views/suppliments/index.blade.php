@@ -32,60 +32,51 @@
                 </div>
 
               <!------meal plan card---------->
-              @foreach ($suppliments as $suppliment )
-                  
-            <div class="col-xl-4 col-xxl-6 col-lg-6 col-sm-6">
-                <div class="card text-white bg-info">
-                    <div class="card-header">
-                        <h5 class="card-title text-white">Meal Plan for</h5>
-                        <a data-toggle="modal" data-target="#basicModal" href="javascript:void()" class="badge badge-warning"><span><i class="fa fa-pencil color-light"></i></span></a>
-                        <a href="javascript:void()" class="badge badge-danger sweet-confirm"><span><i class="fa fa-trash color-light"></i></span></a>
-                    </div>
-                    <div class="card-body mb-0">
-                      <div class="row">
-                        <p class="card-text">Suppliments</p>
-                        <h4>{{$suppliments->suppliment}}</h4>
-                       </div>
-                       <div class="row">
-                        <p class="card-text">foodimage</p>
-                        <p>{{$suppliments->foodimage}}</p>
-                       </div>
-                       <div class="row">
-                        <p class="card-text">foodname</p>
-                        <h4>{{$suppliments->foodname}}</h4>
-                       </div>
-                    </div>
-                    <div class="card-footer bg-transparent border-0 text-white">
-                        <p class="card-text">Created_at</p>
-                        <h3>{{$suppliments->created_by}}</h3>
+              {{-- @foreach ($suppliments as $suppliment ) --}}
+        <div class="row">
+             <div class="col-lg-12 mb-5">
+                    <div class="card">
+                        <div class="card text-center">
+                            <div class="card-header">
+                            <h5 class="card-title">Card title</h5>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">
+                            </p>
+                        </div>
+                        <div class="card-footer">
+                            
+                        </div>
                     </div>
                 </div>
             </div>
-              @endforeach
+        </div> 
+              {{-- @endforeach --}}
 
             <!---------------meal plan ends here-------->
            <!---------meal plan form starts here---------->
 
-                        <div class="modal fade" id="basicModal">
-                            <div class="modal-dialog" role="document">
-                                <div class="modal-content">
+                    <div class="modal fade" id="basicModal">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
                                    <div class="modal-header">
                                     <h5 class="modal-title">Modal title</h5>
                                     </div>
-                                    <form action="{{route('trainer.suppliments.store')}}" method="POST" enctype="multipart/form-data">
+                            <form action="{{route('trainer.suppliments.store')}}" method="POST" enctype="multipart/form-data">
                                                     @csrf
-
+                                  <!--------modal---------->
                                             <div class="modal-body">
                                                 <div class="col-xl-8 col-xxl-12 col-lg-6 col-sm-12">
-
                                                     <div class="form-validation">
                                                             <div class="form-group row">
-                                                                <label class="form-label">Suppliment</label>
+                                                                <label class="col-lg-12">Suppliment</label>
+                                                                <div class="col-lg-12">
                                                                 <input class="form-control" type="text" name="suppliment" placeholder="suppliment">
+                                                              </div>
                                                             </div>
                                                             
                                                         <div class="form-group row">
-                                                            <label class="form-label">Foodimage</label>
+                                                            <label class="col-lg-12">Foodimage</label>
                                                             <div class="input-group ">
                                                                 <div class="custom-file">
                                                                     <input class="custom-file-input" type="file"  name="foodimage" id="foodimage">
@@ -95,35 +86,31 @@
                                                                     <span class="input-group-text">Upload</span>
                                                                 </div>
                                                             </div>
-                                                           @if ($suppliments->$foodimage)
+                                                           {{-- @if ($suppliments->$foodimage)
                                                         <div class="mt-2">
                                                             <img src="{{ foodimages('hajjir2/' . $supplement->foodimage) }}" alt="foodimage" class="img-thumbnail" style="max-height: 200px;">
                                                         </div>
-                                                        @endif
+                                                        @endif --}}
                                                                                                                     
                                                         </div> 
                                                             <div class="form-group row">
-                                                                <label class="form-label">Foodname</label>
+                                                                <label class="col-lg-12">Foodname</label>
+                                                             <div class="col-lg-12">
                                                                 <input class="form-control" name="foodname" placeholder="foodname" type="text">
-                                                            </div>
-
-                                                            <div class="form-group row">
-                                                            <label class="form-label">Created_by</label>
-                                                            <input class="form-control" type="text" name="created_by">
+                                                             </div>
                                                             </div>
                                                     </div>
                                                 </div>
                                             </div> 
-                                                        <div class="modal-footer">
-                                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                            <button type="submit" class="btn btn-primary">Save</button>
-                                                        </div>
-                                    </form>     
-
-                                </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        <button type="submit" class="btn btn-primary">Save</button>
+                                    </div>
+                                </form>     
                             </div>
-                        </div>                
-                                                    
+                        </div>
+                    </div>                
+                
 
         
            <!-----------meal plan form ends here--------->

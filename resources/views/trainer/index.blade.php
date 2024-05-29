@@ -94,7 +94,6 @@
                                                     </div>
                                                 </div>
 
-<<<<<<< HEAD
                                                     <form class="form-valide" action="{{ route('activation')}}" method="POST">
                                                         @csrf
                                                         <div class="modal-body">
