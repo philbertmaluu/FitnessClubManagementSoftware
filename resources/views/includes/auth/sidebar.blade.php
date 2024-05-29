@@ -25,7 +25,7 @@
             @if(Auth::user()->role == 2 )
             <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i class="ti-calendar"></i><span class="nav-text">Calendar</span></a>
                 <ul aria-expanded="false">
-                    <li><a href="{{ route('trainee.schedule')}}">Schedule</a></li>
+                    <li><a href="#">Schedule</a></li>
                 </ul>
             </li>
             @endif
@@ -100,14 +100,8 @@
 
             <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i class="ti-heart"></i><span class="nav-text">Meal Planning</span></a>
                 <ul aria-expanded="false">
-                    <li><a href="javascript:void()">Meals</a></li>
-                    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">Suppliments</a>
-                        <ul aria-expanded="false">
-                            <li><a href="{{route('trainer.suppliments')}}">Meals</a></li>
-                            <li><a href="javascript:void()">....</a></li>
-                            <li><a href="javascript:void()">....</a></li>
-                        </ul>
-                    </li>
+                    <li><a href="{{route('trainer.meals')}}">Meals</a></li>
+                    <li><a href="javascript:void()">Suppliments</a></li>
                 </ul>
             </li>
 
