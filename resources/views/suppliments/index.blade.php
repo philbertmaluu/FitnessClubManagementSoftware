@@ -32,113 +32,186 @@
                 </div>
 
                 <!------meal plan card---------->
-                {{-- @foreach ($suppliments as $suppliment ) --}}
-                <div class="row">
-                    <div class="col-lg-12 mb-5">
-                        <div class="card">
-                            <div class="card text-center">
-                                <div class="card-header">
-                                    <h5 class="card-title">Card title</h5>
-                                </div>
-                                <div class="card-body">
-                                    <p class="card-text">
-                                    </p>
-                                </div>
-                                <div class="card-footer">
 
+
+
+                <div class="row">
+                    <div class="col-xl-2 col-xxl-4 col-lg-4 col-sm-4">
+                        <div class="card mb-3">
+                            <div class="card-header">
+                                <div>
+                                    <h5 class="card-title mb-3">Checken meal for 7 days</h5>
+                                    <h6>1700 calories / day</h6s>
                                 </div>
+                                <div class="card-title">
+                                    <a data-toggle="modal" data-target="#basicModal" href="javascript:void()" class="badge badge-warning"><span><i class="fa fa-pencil color-light"></i></span></a>
+                                    <a href="javascript:void()" class="badge badge-danger sweet-confirm"><span><i class="fa fa-trash color-light"></i></span></a>
+                                </div>
+                            </div>
+                            <div class="m-2">
+                                <img class="card-img-top img-fluid" src="{{ asset('group/images/card/2.png') }}" alt="Card image cap">
+                            </div>
+                            <div class="card-header">
+                                <div>
+                                    <p class="card-title"><span><small><a href="javascript:void()" class="badge badge-outline-light">17</a> meals</small></span></p>
+                                </div>
+                                <div>
+                                    <p class="card-title"><span><small><a href="javascript:void()" class="badge badge-outline-light">7</a> Days</small></span></p>
+                                </div>
+                                <div>
+                                    <p class="card-title"><span><small><a href="javascript:void()" class="badge badge-outline-success">Begginers</a> </small></span></p>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <p class="card-text">
+                                    He lay on his armour-like back, and if he lifted his head a little
+                                    He lay on his armour-like back, and if he lifted his head a little
+                                    He lay on his armour-like back, and if he lifted his head a little
+
+                                </p>
+                            </div>
+                            <div class="card-footer">
+                                <a href="javascript:void()" class="badge badge-rounded badge-outline-warning">Vitamin</a>
+                                <a href="javascript:void()" class="badge badge-rounded badge-outline-warning">Carbohyrate</a>
+                                <a href="javascript:void()" class="badge badge-rounded badge-outline-warning">Fats</a>
+                                <a href="javascript:void()" class="badge badge-rounded badge-outline-warning">Protein</a>
+                                <a href="javascript:void()" class="badge badge-rounded badge-outline-warning">Daily</a>
+
                             </div>
                         </div>
                     </div>
-                    @endforeach
+                </div>
 
-                    <!---------------meal plan ends here-------->
-                    <!---------meal plan form starts here---------->
+                <!---------------meal plan ends here-------->
 
-                    <div class="modal fade" id="basicModal">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title">Modal title</h5>
-                                </div>
-                                <form action="{{route('trainer.suppliments.store')}}" method="POST" enctype="multipart/form-data">
-                                    @csrf
 
-                                    <div class="modal-body">
-                                        <div class="col-xl-8 col-xxl-12 col-lg-6 col-sm-12">
+                <!---------meal plan form starts here---------->
+                <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Create Meal Plan</h5>
+                            </div>
+                            <form action="{{ route('trainer.meals.store') }}" method="POST">
+                                @csrf
 
-                                            <div class="form-validation">
-                                                <div class="form-group row">
-                                                    <label class="form-label">Suppliment</label>
-                                                    <input class="form-control" type="text" name="suppliment" placeholder="suppliment">
-                                                </div>
+                                <div class="modal-body">
+                                    <div class="col-xl-8 col-xxl-12 col-lg-6 col-sm-12">
 
-                                                <div class="form-group row">
-                                                    <label class="form-label">Foodimage</label>
-                                                    <div class="input-group ">
-                                                        <div class="custom-file">
-                                                            <input class="custom-file-input" type="file" name="foodimage" id="foodimage">
-                                                            <label class="custom-file-label" for="foodimage">Choose file</label>
-                                                        </div>
-                                                        <div class="input-group-append">
-                                                            <span class="input-group-text">Upload</span>
-                                                        </div>
+                                        <div class="form-row">
+                                            <div class="form-group col-md-4">
+                                                <label>Level</label>
+
+                                                <select id="inputState" name="level" class="form-control">
+                                                    <option selected>Choose Trainer level</option>
+                                                    @foreach($levels as $level)
+                                                    <option value="$level->id">{{ $level->name}}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                            <div class="form-group col-md-4">
+                                                <label>Name</label>
+                                                <input type="text" name="name" class="form-control">
+                                            </div>
+
+                                            <div class="form-group col-md-4">
+                                                <label>Duration</label>
+                                                <select id="inputState" name="duration" class="form-control">
+                                                    <option selected>Choose trainee level</option>
+                                                    <option value="Morning">Morning</option>
+                                                    <option value="Efternoon">Afternoon</option>
+                                                    <option value="Evening">Evening</option>
+                                                </select>
+                                            </div>
+
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="form-group col-md-4">
+                                                <label>Quality</label>
+                                                <select id="inputState" name="quality" class="form-control">
+                                                    <option selected>Choose meal quality</option>
+                                                    <option value="High">High</option>
+                                                    <option value="Medium">Medium</option>
+                                                    <option value="Low">Low</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group col-md-4">
+                                                <label>Quantity</label>
+                                                <input type="number" name="quality" class="form-control" placeholder="Meal quantity in grams">
+                                            </div>
+                                            <div class="form-group col-md-4">
+                                                <label>Food</label>
+                                                <select multiple name="food_ids[]" data-silent-initial-value-set="false" class="form-control">
+                                                    <option selected>Choose foods to be in meal</option>
+                                                    <option value="High">Food01</option>
+                                                    <option value="Medium">Food02</option>
+                                                    <option value="Low">Food02</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group col-md-4">
+                                                <label>Days</label>
+                                                <input type="number" name="days" class="form-control" placeholder="Password">
+                                            </div>
+                                            <div class="form-group col-md-4">
+                                                <label>Meals</label>
+                                                <input type="number" name="meals" class="form-control" placeholder="Password">
+                                            </div>
+
+
+                                            <div class="form-group col-md-4">
+                                                <label>Meal Image</label>
+                                                <div class="input-group mb-3">
+                                                    <div class="custom-file">
+                                                        <input type="file" class="custom-file-input">
+                                                        <label class="custom-file-label">Choose file</label>
                                                     </div>
-                                                    @if ($suppliments->$foodimage)
-                                                    <div class="mt-2">
-                                                        <img src="{{ foodimages('hajjir2/' . $supplement->foodimage) }}" alt="foodimage" class="img-thumbnail" style="max-height: 200px;">
+                                                    <div class="input-group-append">
+                                                        <span class="input-group-text">Upload</span>
                                                     </div>
-                                                    @endif
-
-                                                </div>
-                                                <div class="form-group row">
-                                                    <label class="form-label">Foodname</label>
-                                                    <input class="form-control" name="foodname" placeholder="foodname" type="text">
-                                                </div>
-
-                                                <div class="form-group row">
-                                                    <label class="form-label">Created_by</label>
-                                                    <input class="form-control" type="text" name="created_by">
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                        <button type="submit" class="btn btn-primary">Save</button>
-                                    </div>
-                                </form>
 
-                            </div>
+                                        <div class="form-group">
+                                            <label>Description</label>
+                                            <textarea class="form-control" rows="4" id="comment"></textarea>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="submit" class="btn btn-primary">Save</button>
+                                </div>
+                            </form>
+
                         </div>
                     </div>
-
-
-
-                    <!-----------meal plan form ends here--------->
-
                 </div>
+                <!-----------meal plan form ends here--------->
 
             </div>
 
-
-
-
-
-
-
-
-
-
-
-            <!--Content body end-->
-
-
-            @include('includes.auth.copyright')
-
-
         </div>
-        <!--Main wrapper end-->
 
-        <!--Scripts-->
-        @include('includes.auth.footer')
+
+
+
+
+
+
+
+
+
+
+        <!--Content body end-->
+
+
+        @include('includes.auth.copyright')
+
+
+    </div>
+    <!--Main wrapper end-->
+
+    <!--Scripts-->
+    @include('includes.auth.footer')
