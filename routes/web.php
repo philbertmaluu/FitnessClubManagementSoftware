@@ -67,6 +67,7 @@ Route::get('/trainer/level', [TrainerController::class, 'createLevel'])->middlew
 Route::post('/trainer/level/store', [TrainerController::class, 'levelStore'])->middleware(['auth', 'verified'])->name('trainer.levels.store');
 
 Route::get('/trainee/calendar/schedule', [TraineeController::class, 'schedule'])->middleware(['auth', 'verified'])->name('trainer.schedule_calendar');
+<<<<<<< HEAD
 
 Route::get('/trainer/dashboard', [TrainerController::class, 'index'])->name('trainer.home');
 Route::get('/trainer/activation/request', [TrainerController::class, 'activation_request'])->middleware(['auth', 'verified'])->name('trainer.request');
@@ -77,6 +78,14 @@ Route::get('/trainer/mealplanning/meals', [MealPlanController::class, 'meal_inde
 Route::post('/trainer/mealplanning/store', [MealPlanController::class, 'meal_store'])->middleware(['auth', 'verified'])->name('trainer.meals.store');
 
 //----------------trainer routes ends  here-----------------------//
+=======
+Route::post('/trainer/suppliments/store',[TrainerController::class,'meal_planstore'])->middleware(['auth','verified'])->name('trainer.suppliments.store');
+Route::get('/trainer/meal/planning',[TrainerController::class,'mealplanning'])->middleware(['auth','verified'])->name('trainer.meal.planning');
+Route::post('/trainer/food/store', [TrainerController::class, 'foodstore'])->middleware(['auth', 'verified'])->name('trainer.food.store');
+// Route::get('trainer/meal/destroy',[TrainerController::class,'destroy'])->middleware(['auth','verified'])->name('trainer.meal.destroy');
+// ------------------notification route----------//
+// Route::post('/trainer/dashboard', [TrainerController::class,'store'])->name('');
+>>>>>>> haroun_dev
 
 
 //-------------------------admin routes----------------------//

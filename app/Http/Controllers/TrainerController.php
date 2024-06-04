@@ -42,6 +42,57 @@ class TrainerController extends Controller
         return view('trainer.requests', compact('inactiveTrainers'));
     }
 
+
+    public function mealplanning()
+    {
+        $mealplans = food::all();
+        return view('trainer.meal', compact('mealplans'));
+    }
+
+
+
+    public function foodstore(Request $request)
+    {
+        //dd($request);
+
+        $validated = $request->validate([
+            'name' => 'required', 'string',
+            'calories' => 'required',
+        ]);
+
+
+
+        $mealplan =  new food;
+        $mealplan->name = $request->name;
+        $mealplan->calories = $request->calories;
+        $mealplan->carbohydrate = $request->has('carbohydrate');
+        $mealplan->protein = $request->has('protein');
+        $mealplan->fats = $request->has('fats');
+        $mealplan->vitamins = $request->has('vitamins');
+        $mealplan->dairyproducts = $request->has('dairyproducts');
+        $mealplan->fruits = $request->has('fruits');
+        $mealplan->water = $request->has('water');
+        $mealplan->created_at = $request->created_at;
+        //dd($mealplan);
+        $mealplan->save();
+
+        if ($mealplan) {
+            return redirect()->back()->with('success', 'mealplan created successfully.');
+        } else {
+            return redirect()->back()->with('error', 'Something went wrong.');
+        }
+    }
+
+    // public function destroy($id)
+    // {
+    //     $mealPlan = food::findOrFail($id);
+
+    //     // Delete the meal plan
+    //     $mealPlan->delete->id();
+
+    //     return redirect()->back()->with('success', 'Meal Plan deleted successfully.');
+    // }
+
     public function schedule_view()
     {
         $schedule = Schedule::all();
