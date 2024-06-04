@@ -97,7 +97,7 @@
 
                                                 <div class="col-lg-12 mb-4">
                                                     <div class="form-group">
-                                                        <label class="text-label">Discription*</label>
+                                                        <label class="text-label">Description*</label>
                                                         <div class="input-group">
                                                             <textarea type="text" name="description" class="form-control" placeholder="" required></textarea>
                                                         </div>

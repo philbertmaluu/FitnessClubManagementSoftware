@@ -46,7 +46,7 @@ Route::put('pricing/plans', [PlanController::class, 'update'])->middleware(['aut
 // ---------------- trainee routes--------------------//
 Route::get('/trainee/dashboard', [ProfileController::class, 'view'])->name('trainee.home');
 Route::get('/trainee/dashboard', [TraineeController::class, 'index'])->middleware(['auth', 'verified'])->name('trainee.home');
-Route::get('/trainee/calendar/schedule', [TraineeController::class, 'schedule'])->middleware(['auth', 'verified'])->name('schedule_calendar');
+Route::get('/trainee/calendar/schedule', [TraineeController::class, 'schedule'])->middleware(['auth', 'verified'])->name('trainee.schedule');
 Route::get('/trainee/calendar/schedule', [TraineeController::class, 'trainingschedule'])->name('trainee.schedule');
 Route::get('/trainee/mealplanning/meal', [MealPlanController::class, 'meal_index'])->middleware(['auth', 'verified'])->name('trainee.meal');
 Route::get('/trainee/mealplanning/supplimets', [MealPlanController::class, 'suppliment_index'])->middleware(['auth', 'verified'])->name('trainee.suppliment');
@@ -75,7 +75,9 @@ Route::post('/trainer/schedule/store', [ScheduleController::class, 'store'])->mi
 //-----------trainer meal plan routes--------------//
 Route::get('/trainer/mealplanning/meals', [MealPlanController::class, 'meal_index'])->middleware(['auth', 'verified'])->name('trainer.meals');
 Route::post('/trainer/mealplanning/store', [MealPlanController::class, 'meal_store'])->middleware(['auth', 'verified'])->name('trainer.meals.store');
-
+Route::get('/trainer/meal/planning', [TrainerController::class, 'mealplanning'])->middleware(['auth', 'verified'])->name('trainer.meal.planning');
+Route::post('/trainer/meal/store', [TrainerController::class, 'storemealplan'])->middleware(['auth', 'verified'])->name('trainer.meal.store');
+Route::get('trainer/meal/destroy', [TrainerController::class, 'destroy'])->middleware(['auth', 'verified'])->name('trainer.meal.destroy');
 //----------------trainer routes ends  here-----------------------//
 
 
