@@ -92,7 +92,7 @@
                             <div class="modal-header">
                                 <h5 class="modal-title">Create Meal Plan</h5>
                             </div>
-                            <form action="{{route('trainer.meals.store')}}" method="POST" enctype="multipart/form-data">
+                            <form action="{{ route('trainer.meals.store') }}" method="POST">
                                 @csrf
 
                                 <div class="modal-body">
@@ -101,51 +101,62 @@
                                         <div class="form-row">
                                             <div class="form-group col-md-4">
                                                 <label>Level</label>
-                                                <select id="inputState" class="form-control">
-                                                    <option selected>Choose...</option>
-                                                    <option>Begginers</option>
-                                                    <option>Middle</option>
-                                                    <option>Juniours</option>
+
+                                                <select id="inputState" name="level" class="form-control">
+                                                    <option selected>Choose Trainer level</option>
+                                                    @foreach($levels as $level)
+                                                    <option value="$level->id">{{ $level->name}}</option>
+                                                    @endforeach
                                                 </select>
                                             </div>
                                             <div class="form-group col-md-4">
                                                 <label>Name</label>
-                                                <input type="text" class="form-control">
+                                                <input type="text" name="name" class="form-control">
                                             </div>
 
                                             <div class="form-group col-md-4">
                                                 <label>Duration</label>
-                                                <select id="inputState" class="form-control">
+                                                <select id="inputState" name="duration" class="form-control">
                                                     <option selected>Choose trainee level</option>
-                                                    <option>Morning</option>
-                                                    <option>Afternoon</option>
-                                                    <option>Evening</option>
+                                                    <option value="Morning">Morning</option>
+                                                    <option value="Efternoon">Afternoon</option>
+                                                    <option value="Evening">Evening</option>
                                                 </select>
                                             </div>
 
                                         </div>
                                         <div class="form-row">
-                                            <div class="form-group col-md-6">
+                                            <div class="form-group col-md-4">
                                                 <label>Quality</label>
-                                                <select id="inputState" class="form-control">
+                                                <select id="inputState" name="quality" class="form-control">
                                                     <option selected>Choose meal quality</option>
-                                                    <option>High</option>
-                                                    <option>Medium</option>
-                                                    <option>Low</option>
+                                                    <option value="High">High</option>
+                                                    <option value="Medium">Medium</option>
+                                                    <option value="Low">Low</option>
                                                 </select>
                                             </div>
-                                            <div class="form-group col-md-6">
+                                            <div class="form-group col-md-4">
                                                 <label>Quantity</label>
-                                                <input type="number" class="form-control" placeholder="Meal quantity">
+                                                <input type="number" name="quality" class="form-control" placeholder="Meal quantity in grams">
+                                            </div>
+                                            <div class="form-group col-md-4">
+                                                <label>Food</label>
+                                                <select multiple name="food_ids[]" data-silent-initial-value-set="false" class="form-control">
+                                                    <option selected>Choose foods to be in meal</option>
+                                                    <option value="High">Food01</option>
+                                                    <option value="Medium">Food02</option>
+                                                    <option value="Low">Food02</option>
+                                                </select>
                                             </div>
                                             <div class="form-group col-md-4">
                                                 <label>Days</label>
-                                                <input type="number" class="form-control" placeholder="Password">
+                                                <input type="number" name="days" class="form-control" placeholder="Password">
                                             </div>
                                             <div class="form-group col-md-4">
                                                 <label>Meals</label>
-                                                <input type="number" class="form-control" placeholder="Password">
+                                                <input type="number" name="meals" class="form-control" placeholder="Password">
                                             </div>
+
 
                                             <div class="form-group col-md-4">
                                                 <label>Meal Image</label>
