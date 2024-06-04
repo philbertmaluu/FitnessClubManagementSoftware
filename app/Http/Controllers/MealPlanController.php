@@ -32,8 +32,8 @@ class MealPlanController extends Controller
             }
         }
 
-        $proxy->shareholder_id = json_encode($request->shareholders);
-        $proxy->save();
+        // $proxy->shareholder_id = json_encode($request->shareholders);
+        // $proxy->save();
 
         $validator = $request->validate(
             [
