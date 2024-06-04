@@ -51,24 +51,18 @@ class TrainerController extends Controller
 
     
 
-    public function storemealplan(Request $request )
+    public function foodstore(Request $request )
     {
-      $validator =$request->validate([
-        'name'=>['required','string'],
-        'calories'=>['required', 'string'],
-        'cabohydrate'=>'sometimes|accepted',
-        'protein'=>'sometimes|accepted',
-        'fats'=>'sometimes|accepted',
-        'vitamins'=>'sometimes|accepted',
-        'dairyproducts'=>'sometimes|accepted',
-        'fruits'=>'sometimes|accepted',
-        'water'=>'sometimes|accepted',
-        'created_at'=>['required','timestamp' ]
+        //dd($request);
+        
+        $validated = $request->validate([
+        'name'=>'required','string',
+        'calories'=>'required',
         ]);
-        
-        
-        
-    $mealplan = new food;
+
+
+    
+    $mealplan =  new food;
     $mealplan ->name = $request->name;
     $mealplan ->calories = $request->calories;
     $mealplan ->carbohydrate=$request->has('carbohydrate');
@@ -79,7 +73,7 @@ class TrainerController extends Controller
     $mealplan->fruits = $request->has('fruits');
     $mealplan->water = $request->has('water');
     $mealplan->created_at =$request->created_at;
-
+//dd($mealplan);
     $mealplan->save();
 
         if ($mealplan) {
@@ -90,15 +84,15 @@ class TrainerController extends Controller
 
     }
 
-    public function destroy($id)
-    {
-        $mealPlan = food::findOrFail($id);
+    // public function destroy($id)
+    // {
+    //     $mealPlan = food::findOrFail($id);
 
-        // Delete the meal plan
-        $mealPlan->delete->id();
+    //     // Delete the meal plan
+    //     $mealPlan->delete->id();
 
-        return redirect()->back()->with('success', 'Meal Plan deleted successfully.');
-    }
+    //     return redirect()->back()->with('success', 'Meal Plan deleted successfully.');
+    // }
 
     public function schedule_view()
     {

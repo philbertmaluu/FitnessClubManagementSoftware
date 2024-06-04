@@ -38,7 +38,7 @@
                                 <h5 class="card-title">MEALS</h5>
                                 <div class="card-title">
                                     <a data-toggle="modal" data-target="#basicModal" href="javascript:void()" class="badge badge-warning"><span><i class="fa fa-pencil color-light"></i></span></a>
-                                    <a href="{{route('trainer.meal.destroy')}}" class="badge badge-danger sweet-confirm"><span><i class="fa fa-trash color-light"></i></span></a>
+                                    <a href="java-script void" class="badge badge-danger sweet-confirm"><span><i class="fa fa-trash color-light"></i></span></a>
                                 </div>
                             </div>
                             <!------------card body------------------------------------------------------------------>
@@ -104,12 +104,8 @@
                             <div class="card-footer">
                             <p class="card-text text-dark d-center">Created_at</p>
                               <p>{{$mealplan->created_at}}</p> 
-                              <form method="post" action="{{ route('trainer.meal.destroy') }}" class="p-6" id="delete-account-form">
-                                @csrf
-                                @method('delete')
-                                <button type="submit" class="hidden" id="delete-account-btn"></button>
-                            </form> 
-                                
+                              
+                                 
                             </div>
                         </div>
                     </div>  
@@ -134,7 +130,8 @@
         <div class="modal-body">
             <div class="card-body">
                 <div class="basic-form">
-                    <form action="{{route('trainer.meal.store')}}" method="POST">
+    
+                    <form action="{{route('trainer.food.store')}}" method="POST">
                         @csrf
                         <div class="form-row">
                             <div class="form-group col-md-6">

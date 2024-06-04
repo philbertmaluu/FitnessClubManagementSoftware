@@ -90,8 +90,8 @@ Route::get('/trainer/suppliments/dashboard',[TrainerController::class,'createmea
 Route::get('/trainee/calendar/schedule', [TraineeController::class, 'schedule'])->middleware(['auth', 'verified'])->name('trainer.schedule_calendar');
 Route::post('/trainer/suppliments/store',[TrainerController::class,'meal_planstore'])->middleware(['auth','verified'])->name('trainer.suppliments.store');
 Route::get('/trainer/meal/planning',[TrainerController::class,'mealplanning'])->middleware(['auth','verified'])->name('trainer.meal.planning');
-Route::post('/trainer/meal/store',[TrainerController::class,'storemealplan'])->middleware(['auth','verified'])->name('trainer.meal.store');
-Route::get('trainer/meal/destroy',[TrainerController::class,'destroy'])->middleware(['auth','verified'])->name('trainer.meal.destroy');
+Route::post('/trainer/food/store', [TrainerController::class, 'foodstore'])->middleware(['auth', 'verified'])->name('trainer.food.store');
+// Route::get('trainer/meal/destroy',[TrainerController::class,'destroy'])->middleware(['auth','verified'])->name('trainer.meal.destroy');
 // ------------------notification route----------//
 // Route::post('/trainer/dashboard', [TrainerController::class,'store'])->name('');
 
