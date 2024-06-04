@@ -45,49 +45,48 @@ class TrainerController extends Controller
 
 
     public function mealplanning()
-    {  $mealplans= food::all();
-       return view('trainer.meal',compact('mealplans') ) ;
+    {
+        $mealplans = food::all();
+        return view('trainer.meal', compact('mealplans'));
     }
 
-    
 
-    public function storemealplan(Request $request )
+
+    public function storemealplan(Request $request)
     {
-      $validator =$request->validate([
-        'name'=>['required','string'],
-        'calories'=>['required', 'string'],
-        'cabohydrate'=>'sometimes|accepted',
-        'protein'=>'sometimes|accepted',
-        'fats'=>'sometimes|accepted',
-        'vitamins'=>'sometimes|accepted',
-        'dairyproducts'=>'sometimes|accepted',
-        'fruits'=>'sometimes|accepted',
-        'water'=>'sometimes|accepted',
-        'created_at'=>['required','timestamp' ]
+        $validator = $request->validate([
+            'name' => ['required', 'string'],
+            'calories' => ['required', 'string'],
+            'cabohydrate' => 'sometimes|accepted',
+            'protein' => 'sometimes|accepted',
+            'fats' => 'sometimes|accepted',
+            'vitamins' => 'sometimes|accepted',
+            'dairyproducts' => 'sometimes|accepted',
+            'fruits' => 'sometimes|accepted',
+            ';water' => 'sometimes|accepted',
+            'created_at' => ['required', 'timestamp']
         ]);
-        
-        
-        
-    $mealplan = new food;
-    $mealplan ->name = $request->name;
-    $mealplan ->calories = $request->calories;
-    $mealplan ->carbohydrate=$request->has('carbohydrate');
-    $mealplan->protein = $request->has('protein');
-    $mealplan->fats = $request->has('fats');
-    $mealplan->vitamins = $request->has('vitamins');
-    $mealplan->dairyproducts = $request->has('dairyproducts');
-    $mealplan->fruits = $request->has('fruits');
-    $mealplan->water = $request->has('water');
-    $mealplan->created_at =$request->created_at;
 
-    $mealplan->save();
+        dd($request);
+        $mealplan = new food;
+        $mealplan->name = $request->name;
+        $mealplan->calories = $request->calories;
+        $mealplan->carbohydrate = $request->has('carbohydrate');
+        $mealplan->protein = $request->has('protein');
+        $mealplan->fats = $request->has('fats');
+        $mealplan->vitamins = $request->has('vitamins');
+        $mealplan->dairyproducts = $request->has('dairyproducts');
+        $mealplan->fruits = $request->has('fruits');
+        $mealplan->water = $request->has('water');
+        $mealplan->created_at = $request->created_at;
+
+        $mealplan->save();
 
         if ($mealplan) {
             return redirect()->back()->with('success', 'mealplan created successfully.');
         } else {
             return redirect()->back()->with('error', 'Something went wrong.');
         }
-
     }
 
     public function destroy($id)
