@@ -130,7 +130,7 @@
 =======
                                                 <div class="col-lg-12 mb-4">
                                                     <div class="form-group">
-                                                        <label class="text-label">Discription*</label>
+                                                        <label class="text-label">Description*</label>
                                                         <div class="input-group">
                                                             <textarea type="text" name="description" class="form-control" placeholder="" required></textarea>
                                                         </div>
@@ -219,12 +219,12 @@
                                         <h4>suggested Plans</h4>
                                         <section>
                                             <div class="row">
-                                                @foreach($plans as $plan)
+                                                {{-- @foreach($plans as $plan) --}}
                                                 <div class="col-xl-4 col-xxl-6 col-lg-6 col-sm-6">
                                                     <div class="card text-center">
                                                         <div class="card-header">
-                                                            <h5 class="card-title">{{$plan->name}}</h5>
->>>>>>> 51d5f80e6b93f35a68eeca9ca3ff9c8ea50a605b
+                                                            {{-- <h5 class="card-title">{{$plan->name}}</h5> --}}
+
 
 
                                                             @if(Auth::user()->role == 1)
@@ -236,16 +236,16 @@
                                                         </div>
                                                         <div class="card-body">
 
-                                                            <p class="card-text">{{ $plan->desciption}}</p>
+                                                            {{-- <p class="card-text">{{ $plan->desciption}}</p> --}}
                                                             <a href="javascript:void()" class="btn btn-primary">Subscribe</a>
                                                         </div>
                                                         <div class="card-footer">
-                                                            <p class="card-text text-dark">{{ $plan->price }}</p>
+                                                            {{-- <p class="card-text text-dark">{{ $plan->price }}</p> --}}
                                                         </div>
 
                                                     </div>
                                                 </div>
-                                                @endforeach
+                                                {{-- @endforeach --}}
                                             </div>
                                         </section>
                                         <h4>Payment</h4>
