@@ -10,6 +10,7 @@ use App\Models\schedule;
 use App\Models\suppliments;
 use SebastianBergmann\Type\TrueType;
 use Illuminate\Support\Facades\Auth;
+use App\Models\food;
 
 class TrainerController extends Controller
 {
@@ -25,9 +26,6 @@ class TrainerController extends Controller
 
     public function store(Request $request)
     {
-
-
-
         //$messege = Notification::;
 
     }
@@ -56,11 +54,13 @@ class TrainerController extends Controller
         //dd($request);
 
         $validated = $request->validate([
-            'name' => 'required', 'string',
+            'name' => 'required',
             'calories' => 'required',
         ]);
 
-
+        if (!$validated) {
+            return redirect()->back()->with('error', 'Something is not ok with form validation.');
+        }
 
         $mealplan =  new food;
         $mealplan->name = $request->name;
@@ -72,12 +72,11 @@ class TrainerController extends Controller
         $mealplan->dairyproducts = $request->has('dairyproducts');
         $mealplan->fruits = $request->has('fruits');
         $mealplan->water = $request->has('water');
-        $mealplan->created_at = $request->created_at;
-        //dd($mealplan);
+        $mealplan->created_by = Auth::user()->id;
         $mealplan->save();
 
         if ($mealplan) {
-            return redirect()->back()->with('success', 'mealplan created successfully.');
+            return redirect()->back()->with('success', 'Food created successfully.');
         } else {
             return redirect()->back()->with('error', 'Something went wrong.');
         }
@@ -137,5 +136,10 @@ class TrainerController extends Controller
         } else {
             return redirect()->back()->with('error', 'Something went wrong.');
         }
+    }
+
+    public function trainer_messeges()
+    {
+        return view('trainer.notifications.messeges');
     }
 }

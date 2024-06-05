@@ -19,6 +19,23 @@
 
             <div class="container-fluid">
 
+
+                <!----------alert starts------------>
+                @if(session('success'))
+                <div class="alert alert-success alert-dismissible alert-alt fade show">
+                    <button type="button" class="close h-100" data-dismiss="alert" aria-label="Close"><span><i class="mdi mdi-close"></i></span></button>
+                    {{ session('success') }}
+                </div>
+                @elseif(session('error'))
+                <div class="alert alert-danger alert-dismissible alert-alt fade show">
+                    <button type="button" class="close h-100" data-dismiss="alert" aria-label="Close"><span><i class="mdi mdi-close"></i></span>
+                    </button>
+                    {{ session('error') }}
+                </div>
+                @endif
+
+                <!---------alert ends----------->
+
                 <div class="row page-titles mx-0">
                     <div class="col-sm-6 p-md-0">
                         <div class="welcome-text">
@@ -30,18 +47,15 @@
                         <a type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg" href="javascript:void()"><span class="text-light"><i class="fa fa-plus color-light"></i></span></a>
                     </div>
                 </div>
-
                 <!------meal plan card---------->
-
-
-
                 <div class="row">
+                    @foreach($mealplans as $meals)
                     <div class="col-xl-2 col-xxl-4 col-lg-4 col-sm-4">
                         <div class="card mb-3">
                             <div class="card-header">
                                 <div>
-                                    <h5 class="card-title mb-3">Checken meal for 7 days</h5>
-                                    <h6>1700 calories / day</h6s>
+                                    <h5 class="card-title mb-3">{{ $meals->suppliment }}</h5>
+                                    <h6>350 calories / day</h6s>
                                 </div>
                                 <div class="card-title">
                                     <a data-toggle="modal" data-target="#basicModal" href="javascript:void()" class="badge badge-warning"><span><i class="fa fa-pencil color-light"></i></span></a>
@@ -53,13 +67,13 @@
                             </div>
                             <div class="card-header">
                                 <div>
-                                    <p class="card-title"><span><small><a href="javascript:void()" class="badge badge-outline-light">17</a> meals</small></span></p>
+                                    <p class="card-title"><span><small><a href="javascript:void()" class="badge badge-outline-light">{{ $meals->meals}}</a> meals</small></span></p>
                                 </div>
                                 <div>
-                                    <p class="card-title"><span><small><a href="javascript:void()" class="badge badge-outline-light">7</a> Days</small></span></p>
+                                    <p class="card-title"><span><small><a href="javascript:void()" class="badge badge-outline-light">{{ $meals->days}}</a> Days</small></span></p>
                                 </div>
                                 <div>
-                                    <p class="card-title"><span><small><a href="javascript:void()" class="badge badge-outline-success">Begginers</a> </small></span></p>
+                                    <p class="card-title"><span><small><a href="javascript:void()" class="badge badge-outline-success">{{ $meals->level->name}}</a> </small></span></p>
                                 </div>
                             </div>
                             <div class="card-body">
@@ -67,7 +81,6 @@
                                     He lay on his armour-like back, and if he lifted his head a little
                                     He lay on his armour-like back, and if he lifted his head a little
                                     He lay on his armour-like back, and if he lifted his head a little
-
                                 </p>
                             </div>
                             <div class="card-footer">
@@ -80,11 +93,9 @@
                             </div>
                         </div>
                     </div>
+                    @endforeach
                 </div>
-
                 <!---------------meal plan ends here-------->
-
-
                 <!---------meal plan form starts here---------->
                 <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
                     <div class="modal-dialog modal-lg">
@@ -105,7 +116,7 @@
                                                 <select id="inputState" name="level" class="form-control">
                                                     <option selected>Choose Trainer level</option>
                                                     @foreach($levels as $level)
-                                                    <option value="$level->id">{{ $level->name}}</option>
+                                                    <option value="{{ $level->id }}">{{ $level->name}}</option>
                                                     @endforeach
                                                 </select>
                                             </div>
@@ -141,13 +152,14 @@
                                             </div>
                                             <div class="form-group col-md-4">
                                                 <label>Food</label>
-                                                <select multiple name="food_ids[]" data-silent-initial-value-set="false" class="form-control">
-                                                    <option selected>Choose foods to be in meal</option>
-                                                    <option value="High">Food01</option>
-                                                    <option value="Medium">Food02</option>
-                                                    <option value="Low">Food02</option>
+                                                <select multiple name="food_ids[]" class="form-control">
+                                                    <option disabled>Choose foods to be in meal</option>
+                                                    @foreach($foods as $food)
+                                                    <option value="{{ $food->id }}">{{ $food->name }}</option>
+                                                    @endforeach
                                                 </select>
                                             </div>
+
                                             <div class="form-group col-md-4">
                                                 <label>Days</label>
                                                 <input type="number" name="days" class="form-control" placeholder="Password">
@@ -162,7 +174,7 @@
                                                 <label>Meal Image</label>
                                                 <div class="input-group mb-3">
                                                     <div class="custom-file">
-                                                        <input type="file" class="custom-file-input">
+                                                        <input type="file" name="mealimage" class="custom-file-input">
                                                         <label class="custom-file-label">Choose file</label>
                                                     </div>
                                                     <div class="input-group-append">
@@ -170,6 +182,7 @@
                                                     </div>
                                                 </div>
                                             </div>
+
                                         </div>
 
                                         <div class="form-group">

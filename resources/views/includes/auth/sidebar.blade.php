@@ -101,13 +101,12 @@
             <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i class="ti-heart"></i><span class="nav-text">Meal Planning</span></a>
                 <ul aria-expanded="false">
                     <li><a href="{{route('trainer.meals')}}">Meals</a></li>
-                    <li><a href="javascript:void()">Suppliments</a></li>
                 </ul>
             </li>
 
 
             <li class="nav-label">Notifications</li>
-            <li><a href="{{ route('trainee.messeges') }}" aria-expanded="false"><i class="ti-comment-alt"></i><span class="nav-text">Messeges</span></a></li>
+            <li><a href="{{ route('trainer.messeges') }}" aria-expanded="false"><i class="ti-comment-alt"></i><span class="nav-text">Messeges</span></a></li>
             <li><a href="{{ route('trainee.nutrition') }}" aria-expanded="false"><i class="ti-pulse"></i><span class="nav-text">Nutrition And Health</span></a></li>
             <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i class="ti-email"></i><span class="nav-text">Emails</span></a>
                 <ul aria-expanded="false">
@@ -121,6 +120,7 @@
             <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i class="ti-settings"></i><span class="nav-text">Settings</span></a>
                 <ul aria-expanded="false">
                     <li><a href="{{ route('trainer.levels')}}">Levels</a></li>
+                    <li><a href="{{ route('trainer.meal.planning')}}">Meal planning</a></li>
                 </ul>
             </li>
 
