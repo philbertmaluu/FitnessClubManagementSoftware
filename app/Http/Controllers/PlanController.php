@@ -43,10 +43,8 @@ class PlanController extends Controller
         Plan::create([
             'name' => $request->name,
             'price' => $request->price,
-            'description' => $request->description,
+            'desciption' => $request->descrioption,
         ]);
-
-
 
         return redirect()->back()->with('success', 'Plan created successfully..');
     }

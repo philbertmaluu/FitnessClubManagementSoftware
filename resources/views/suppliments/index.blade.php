@@ -39,13 +39,23 @@
                 <div class="row page-titles mx-0">
                     <div class="col-sm-6 p-md-0">
                         <div class="welcome-text">
+                            @if(Auth::user()->role == 1 && Auth::user()->role == 3)
                             <h4>Create Meal plan</h4>
+                            @else
+                            @auth
+                            <h4>Hi, {{ Auth::user()->username }} review proposed meals plans.</h4>
+                            @endauth
+
+                            @endif
+
 
                         </div>
                     </div>
+                    @if(Auth::user()->role == 3)
                     <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
                         <a type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg" href="javascript:void()"><span class="text-light"><i class="fa fa-plus color-light"></i></span></a>
                     </div>
+                    @endif
                 </div>
                 <!------meal plan card---------->
                 <div class="row">
@@ -58,8 +68,10 @@
                                     <h6>350 calories / day</h6s>
                                 </div>
                                 <div class="card-title">
+                                    @if(Auth::user()->role == 3)
                                     <a data-toggle="modal" data-target="#basicModal" href="javascript:void()" class="badge badge-warning"><span><i class="fa fa-pencil color-light"></i></span></a>
                                     <a href="javascript:void()" class="badge badge-danger sweet-confirm"><span><i class="fa fa-trash color-light"></i></span></a>
+                                    @endif
                                 </div>
                             </div>
                             <div class="m-2">

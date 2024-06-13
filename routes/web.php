@@ -14,6 +14,7 @@ use App\Http\Controllers\TrainerController;
 use App\Http\Controllers\TraineeController;
 use App\Http\Controllers\ActivationController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\GoalSettingController;
 use App\Http\Controllers\MealPlanController;
 use App\Http\Controllers\StripeController;
 use App\Http\Controllers\TraineeNotificationController;
@@ -57,6 +58,10 @@ Route::get('/trainee/notifications/messeges', [TraineeNotificationController::cl
 Route::get('/trainee/notifications/nutrition&health', [TraineeNotificationController::class, 'nutrition_index'])->middleware(['auth', 'verified'])->name('trainee.nutrition');
 Route::get('/trainee/dashboard', [TraineeController::class, 'index'])->middleware(['auth', 'verified'])->name('trainee.home');
 Route::get('/trainee/calendar/schedule', [TraineeController::class, 'schedule'])->middleware(['auth', 'verified'])->name('trainee.schedule');
+Route::post('/trainee/goal/settings', [GoalSettingController::class, 'store'])->middleware(['auth', 'verified'])->name('trainee.goal-setting');
+
+
+
 
 
 

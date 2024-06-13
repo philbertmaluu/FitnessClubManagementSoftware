@@ -20,7 +20,9 @@
                 <div class="row page-titles mx-0">
                     <div class="col-sm-6 p-md-0">
                         <div class="welcome-text">
-                            <h4>Hi, welcome back!</h4>
+                            @auth
+                            <h4>Hi, {{ Auth::user()->username }} welcome back!</h4>
+                            @endauth
                             <p class="mb-0">create schedule for al level</p>
                         </div>
                     </div>
