@@ -11,8 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('suppliments', function (Blueprint $table) {
-            //
+        Schema::table('food', function (Blueprint $table) {
+            $table->integer('created_by');
         });
     }
 
@@ -21,8 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('suppliments', function (Blueprint $table) {
-            //
+        Schema::table('food', function (Blueprint $table) {
+            $table->dropColumn('created_by');
         });
     }
 };

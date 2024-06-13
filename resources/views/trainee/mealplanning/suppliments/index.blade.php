@@ -27,4 +27,4 @@
     <!--Main wrapper end-->
 
     <!--Scripts-->
-    @include('includes.auth.footer')
+    @include('includes.auth.footer')q

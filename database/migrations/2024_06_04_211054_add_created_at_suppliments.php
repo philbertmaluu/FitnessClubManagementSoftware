@@ -12,7 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('suppliments', function (Blueprint $table) {
-            //
+            $table->string('foodimage')->nullable();
+            $table->integer('created_by');
         });
     }
 
@@ -22,7 +23,8 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('suppliments', function (Blueprint $table) {
-            //
+            $table->dropColumn('foodimage');
+            $table->dropColumn('created_by');
         });
     }
 };

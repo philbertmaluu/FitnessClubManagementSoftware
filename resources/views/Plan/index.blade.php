@@ -49,30 +49,34 @@
                 <div class="row">
 
                     @foreach($plans as $plan)
-                    <div class="col-xl-3 col-xxl-4 col-lg-4 col-sm-6">
+
+
+
+                    <div class="col-xl-3 col-xxl-3 col-lg-4 col-sm-6">
                         <div class="card text-center">
                             <div class="card-header">
                                 <h5 class="card-title">{{$plan->name}}</h5>
-
                                 <div class="card-title">
-                                    <a data-toggle="modal" data-target=".bd-example-modal-lg2" href="javascript:void()" class="badge badge-warning"><span><i class="fa fa-pencil color-light"></i></span></a>
+                                    <a data-toggle="modal" data-target="#basicModal" href="javascript:void()" class="badge badge-warning"><span><i class="fa fa-pencil color-light"></i></span></a>
                                     <a href="javascript:void()" class="badge badge-danger sweet-confirm"><span><i class="fa fa-trash color-light"></i></span></a>
                                 </div>
                             </div>
-                            <div class="card-body">
+                            <div class="card-body d-flex justify-center align-center" style="margin-left: 3rem;">
 
-                                <p class="card-text">{{ $plan->desciption}}</p>
-                                <a href="javascript:void()" class="btn btn-primary">{{ $plan->price }}</a>
+                                <div class="ml-4">
+                                    <p class="card-text">Price</p>
+                                    <h1>{{ $plan->price }}</h1>
+                                </div>
+                                <!-- <a href="javascript:void()" class="btn btn-primary">hio</a> -->
                             </div>
                             <div class="card-footer">
-                                <p class="card-text text-dark">{{ $plan->created_at}}</p>
+                                <a href="javascript:void()" class="badge badge-rounded badge-outline-warning">Anaerobic</a>
+                                <a href="javascript:void()" class="badge badge-rounded badge-outline-info">Jogging</a>
+                                <a href="javascript:void()" class="badge badge-rounded badge-outline-warning">Weight Lifting</a>
                             </div>
                             <form method="post" action="{{ route('profile.destroy') }}" class="p-6" id="delete-account-form">
                                 @csrf
                                 @method('delete')
-
-                                <!-- Input fields for the form -->
-
                                 <button type="submit" class="hidden" id="delete-account-btn"></button>
                             </form>
                         </div>

@@ -56,7 +56,7 @@
                     </div>
                 </div>
                 <!-- row -->
-                @if(Auth::user()->is_active == 0)
+                @if(Auth::user()->is_active == -1)
                 <div class="row">
                     <div class="col-xl-12 col-xxl-12">
                         <div class="card">
@@ -64,45 +64,97 @@
                                 <h4 class="card-title">Setup your account</h4>
                             </div>
                             <div class="card-body">
-                                <form action="#" id="step-form-horizontal" class="step-form-horizontal">
+                                <form id="step-form-horizontal" class="step-form-horizontal">
                                     <div>
                                         <h4>Goal settings</h4>
                                         <section>
                                             <div class="row">
-                                                <div class="col-lg-6 mb-4">
-                                                    <div class="form-group">
-                                                        <label class="text-label">Level*</label>
-                                                        <select class="form-control" type="number" name="level" required autocomplete="new-password">
-                                                            <option>Select your level</option>
-                                                            <option value="1">Beginner</option>
-                                                            <option value="2">Intermediate</option>
-                                                            <option value="2">Senior</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-6 mb-4">
-                                                    <div class="form-group">
-                                                        <label class="text-label">Targeted weight</label>
-                                                        <input type="number" name="weight" class="form-control" placeholder="Enter the your target weight">
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-12 mb-4">
-                                                    <div class="form-group">
-                                                        <label class="text-label">Start date*</label>
-                                                        <div class="input-group">
-                                                            <input type="date" name="start_date" class="form-control" id="inputGroupPrepend2" aria-describedby="inputGroupPrepend2" placeholder="example@example.com.com" required>
+                                                <!-- Main form -->
+                                                <form action="{{ route('trainee.goal-setting') }}" method="POST">
+                                                    @csrf
+                                                    <div class="col-lg-3 mb-4">
+                                                        <div class="form-group">
+                                                            <label class="text-label">Current Fitness Level*</label>
+                                                            <select name="fitness_level" class="form-control" required>
+                                                                <option value="">Select your fitness level</option>
+                                                                <option value="beginner">Beginner</option>
+                                                                <option value="intermediate">Intermediate</option>
+                                                                <option value="advanced">Advanced</option>
+                                                            </select>
                                                         </div>
                                                     </div>
-                                                </div>
+                                                    <div class="col-lg-3 mb-4">
+                                                        <div class="form-group">
+                                                            <label class="text-label">Targeted weight</label>
+                                                            <input type="number" name="weight" class="form-control" placeholder="Enter your target weight">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-3 mb-4">
+                                                        <div class="form-group">
+                                                            <label class="text-label">Start date*</label>
+                                                            <div class="input-group">
+                                                                <input type="date" name="start_date" class="form-control" placeholder="Enter the date to begin training" required>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-3 mb-4">
+                                                        <div class="form-group">
+                                                            <label class="text-label">Phone*</label>
+                                                            <div class="input-group">
+                                                                <input type="text" name="phone" class="form-control" placeholder="Enter your phone number" required>
+                                                            </div>
+                                                        </div>
+                                                    </div>
 
-                                                <div class="col-lg-12 mb-4">
-                                                    <div class="form-group">
-                                                        <label class="text-label">Description*</label>
-                                                        <div class="input-group">
-                                                            <textarea type="text" name="description" class="form-control" placeholder="" required></textarea>
+                                                    <!-- New questions -->
+                                                    <div class="col-lg-3 mb-4">
+                                                        <div class="form-group">
+                                                            <label class="text-label">Address*</label>
+                                                            <input type="text" name="address" class="form-control" placeholder="Enter your home address" required>
                                                         </div>
                                                     </div>
-                                                </div>
+                                                    <div class="col-lg-3 mb-4">
+                                                        <div class="form-group">
+                                                            <label class="text-label">Age*</label>
+                                                            <input type="number" name="age" class="form-control" placeholder="Enter your age" required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-3 mb-4">
+                                                        <div class="form-group">
+                                                            <label class="text-label">Gender*</label>
+                                                            <select name="gender" class="form-control" required>
+                                                                <option value="">Select your gender</option>
+                                                                <option value="male">Male</option>
+                                                                <option value="female">Female</option>
+                                                                <option value="other">Other</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-3 mb-4">
+                                                        <div class="form-group">
+                                                            <label class="text-label">Exercise Frequency (per week)*</label>
+                                                            <input type="number" name="exercise_frequency" class="form-control" placeholder="Please specify" required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6 mb-4">
+                                                        <div class="form-group">
+                                                            <label class="text-label">Current Health Status*</label>
+                                                            <div class="input-group">
+                                                                <textarea name="description" class="form-control" placeholder="Please specify your current health status" required></textarea>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6 mb-4">
+                                                        <div class="form-group">
+                                                            <label class="text-label">Primary Fitness Goals*</label>
+                                                            <textarea name="primary_goals" class="form-control" placeholder="Please specify" required></textarea>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-lg-12 mb-4">
+                                                        <button type="submit" name="submit" class="btn btn-primary col-lg-12">Submit</button>
+                                                    </div>
+                                                </form>
                                             </div>
                                         </section>
                                         <h4>Suggested schedule</h4>
@@ -187,28 +239,51 @@
                                         <section>
                                             <div class="row">
                                                 @foreach($plans as $plan)
-                                                <div class="col-xl-4 col-xxl-6 col-lg-6 col-sm-6">
+
+                                                <div class="col-xl-3 col-xxl-3 col-lg-4 col-sm-6">
                                                     <div class="card text-center">
                                                         <div class="card-header">
                                                             <h5 class="card-title">{{$plan->name}}</h5>
-
-
                                                             @if(Auth::user()->role == 1)
                                                             <div class="card-title">
-                                                                <a data-toggle="modal" data-target=".bd-example-modal-lg2" href="javascript:void()" class="badge badge-warning"><span><i class="fa fa-pencil color-light"></i></span></a>
+                                                                <a data-toggle="modal" data-target="#basicModal" href="javascript:void()" class="badge badge-warning"><span><i class="fa fa-pencil color-light"></i></span></a>
                                                                 <a href="javascript:void()" class="badge badge-danger sweet-confirm"><span><i class="fa fa-trash color-light"></i></span></a>
                                                             </div>
+                                                            @else
+
+                                                            <div class="card-title1">
+                                                                <div class="form-check">
+                                                                    <input value="{{ $plan->id }}" name="plan_id" class="form-check-input" type="checkbox" require>
+                                                                    <label class="form-check-label">
+                                                                        Subscribe
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+
                                                             @endif
                                                         </div>
-                                                        <div class="card-body">
+                                                        <div class="card-body d-flex justify-center align-center" style="margin-left: 2.5rem;">
 
-                                                            <p class="card-text">{{ $plan->desciption}}</p>
-                                                            <a href="javascript:void()" class="btn btn-primary">Subscribe</a>
+                                                            <div class="ml-4">
+                                                                <p class="card-text">Price</p>
+                                                                <h1>{{ $plan->price}}</h1>
+                                                            </div>
+                                                            <!-- <a href="javascript:void()" class="btn btn-primary">hio</a> -->
                                                         </div>
                                                         <div class="card-footer">
-                                                            <p class="card-text text-dark">{{ $plan->price }}</p>
-                                                        </div>
 
+                                                            <a href="javascript:void()" class="badge badge-rounded badge-outline-warning">Weight Lifting</a>
+                                                            <a href="javascript:void()" class="badge badge-rounded badge-outline-info">Jogging</a>
+                                                            <a href="javascript:void()" class="badge badge-rounded badge-outline-warning">Anaerobic</a>
+                                                            <a href="javascript:void()" class="badge badge-rounded badge-outline-danger">Swimming</a>
+
+
+                                                        </div>
+                                                        <form hidden method="post" action="{{ route('profile.destroy') }}" class="p-6" id="delete-account-form">
+                                                            @csrf
+                                                            @method('delete')
+                                                            <button type="submit" class="hidden" id="delete-account-btn"></button>
+                                                        </form>
                                                     </div>
                                                 </div>
                                                 @endforeach
@@ -235,7 +310,7 @@
                                                                 <form action="/test" method="POST">
                                                                     @csrf
                                                                     <input type="hidden">
-                                                                    <button type="submit" id="checkout-test-button" class="btn btn-primary">Checkout (Test)</button>
+                                                                    <button type="submit" id="checkout-test-button"></button>
                                                                 </form>
                                                             </div>
 
@@ -312,7 +387,7 @@
                                     <div class="stat-digit"> Badmintoon</div>
                                 </div>
                                 <div class="progress">
-                                    <div class="progress-bar progress-bar-success w-85" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+                                    <div class="progress-bar progress-bar-success w-10" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
                                 </div>
                             </div>
                         </div>
@@ -325,7 +400,7 @@
                                     <div class="stat-digit">Jooging</div>
                                 </div>
                                 <div class="progress">
-                                    <div class="progress-bar progress-bar-primary w-75" role="progressbar" aria-valuenow="78" aria-valuemin="0" aria-valuemax="100"></div>
+                                    <div class="progress-bar progress-bar-primary w-5" role="progressbar" aria-valuenow="78" aria-valuemin="0" aria-valuemax="100"></div>
                                 </div>
                             </div>
                         </div>
@@ -338,7 +413,7 @@
                                     <div class="stat-digit">Body Building</div>
                                 </div>
                                 <div class="progress">
-                                    <div class="progress-bar progress-bar-warning w-50" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                    <div class="progress-bar progress-bar-warning w-10" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
                                 </div>
                             </div>
                         </div>
@@ -351,7 +426,7 @@
                                     <div class="stat-digit">Swimming</div>
                                 </div>
                                 <div class="progress">
-                                    <div class="progress-bar progress-bar-danger w-65" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
+                                    <div class="progress-bar progress-bar-danger w-15" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
                                 </div>
                             </div>
                         </div>

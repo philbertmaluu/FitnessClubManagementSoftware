@@ -8,9 +8,9 @@ use App\Models\notification;
 use App\Models\User;
 use App\Models\schedule;
 use App\Models\suppliments;
-use App\Models\food;
 use SebastianBergmann\Type\TrueType;
 use Illuminate\Support\Facades\Auth;
+use App\Models\food;
 
 class TrainerController extends Controller
 {
@@ -26,9 +26,6 @@ class TrainerController extends Controller
 
     public function store(Request $request)
     {
-
-
-
         //$messege = Notification::;
 
     }
@@ -45,43 +42,44 @@ class TrainerController extends Controller
 
 
     public function mealplanning()
-    {  $mealplans= food::all();
-       return view('trainer.meal',compact('mealplans') ) ;
+    {
+        $mealplans = food::all();
+        return view('trainer.meal', compact('mealplans'));
     }
 
-    
 
-    public function foodstore(Request $request )
+
+    public function foodstore(Request $request)
     {
         //dd($request);
-        
+
         $validated = $request->validate([
-        'name'=>'required','string',
-        'calories'=>'required',
+            'name' => 'required',
+            'calories' => 'required',
         ]);
 
+        if (!$validated) {
+            return redirect()->back()->with('error', 'Something is not ok with form validation.');
+        }
 
-    
-    $mealplan =  new food;
-    $mealplan ->name = $request->name;
-    $mealplan ->calories = $request->calories;
-    $mealplan ->carbohydrate=$request->has('carbohydrate');
-    $mealplan->protein = $request->has('protein');
-    $mealplan->fats = $request->has('fats');
-    $mealplan->vitamins = $request->has('vitamins');
-    $mealplan->dairyproducts = $request->has('dairyproducts');
-    $mealplan->fruits = $request->has('fruits');
-    $mealplan->water = $request->has('water');
-    $mealplan->created_at =$request->created_at;
-//dd($mealplan);
-    $mealplan->save();
+        $mealplan =  new food;
+        $mealplan->name = $request->name;
+        $mealplan->calories = $request->calories;
+        $mealplan->carbohydrate = $request->has('carbohydrate');
+        $mealplan->protein = $request->has('protein');
+        $mealplan->fats = $request->has('fats');
+        $mealplan->vitamins = $request->has('vitamins');
+        $mealplan->dairyproducts = $request->has('dairyproducts');
+        $mealplan->fruits = $request->has('fruits');
+        $mealplan->water = $request->has('water');
+        $mealplan->created_by = Auth::user()->id;
+        $mealplan->save();
 
         if ($mealplan) {
-            return redirect()->back()->with('success', 'mealplan created successfully.');
+            return redirect()->back()->with('success', 'Food created successfully.');
         } else {
             return redirect()->back()->with('error', 'Something went wrong.');
         }
-
     }
 
     // public function destroy($id)
@@ -140,44 +138,8 @@ class TrainerController extends Controller
         }
     }
 
-       public function createmeal_plan()
-       {
-           $suppliments = suppliments::all();
-           return view('suppliments.index', compact('suppliments'));
-       }
-
-       public function meal_planstore(Request $request)
-       {
-        $validator = $request->validate([
-                
-                'foodname'=>'required','string',
-                'foodimage' => 'nullable|file|mimes:jpg,jpeg,png|max:2048',
-                'created_by' => 'required|string',
-                
-            ]
-            );
-
-        // Handle the file upload
-        if ($request->hasFile('foodimage')) {
-            $file = $request->file('foodimage');
-            $path = $file->store('foodimages', 'public'); // Store the file in the public disk's foodimages directory
-        } else {
-            $path = null;
-        }
-             $user =Auth::user()->id;
-            $suppliments = new suppliments;
-            $suppliments -> level_id =$request->id;
-            $suppliments -> suppliment =$request -> suppliment;
-            $suppliments -> foodname =$request-> foodname;
-            $suppliments ->foodimage = $path;
-            $suppliments -> created_by =$request->created_by;
-            $suppliments-> save();
-
-        if ($suppliments) {
-            return redirect()->back()->with('success', 'Mealplan created successfully.');
-        } else {
-            return redirect()->back()->with('error', 'Something went wrong.');
-        } 
-         }    
-        
+    public function trainer_messeges()
+    {
+        return view('trainer.notifications.messeges');
     }
+}

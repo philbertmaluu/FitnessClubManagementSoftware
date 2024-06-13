@@ -75,7 +75,11 @@
                                 <p class="card-text text-dark">Descriptions</p>
                                 <small>{{ $level->description  }}</small>
                             </div>
-                            
+                            <form method="post" action="{{ route('profile.destroy') }}" class="p-6" id="delete-account-form">
+                                @csrf
+                                @method('delete')
+                                <button type="submit" class="hidden" id="delete-account-btn"></button>
+                            </form>
                         </div>
                     </div>
                     @endforeach
@@ -263,8 +267,6 @@
                 </div>
             </div>
         </div>
-
-
 
         <!--Content body end-->
 

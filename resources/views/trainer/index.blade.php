@@ -94,39 +94,40 @@
                                                     </div>
                                                 </div>
 
-                                                    <form class="form-valide" action="{{ route('activation')}}" method="POST">
-                                                        @csrf
-                                                        <div class="modal-body">
-                                                            <div class="col-xl-8 col-xxl-12 col-lg-6 col-sm-12">
-                                                                <div class="form-validation">
-                                                                    <div class="form-group row">
-                                                                        <label class="col-lg-12 col-form-label" for="val-pas">To<span class="text-danger"></span></label>
-                                                                        <div class="col-lg-12">
-                                                                            <select class="js-select2 form-control" id="val-select2" name="receiver" style="width: 100%;" data-placeholder="Choose one..">
-                                                                                @foreach ( $admins as $admin )
-                                                                                <option value="{{ $admin->id}}">{{ $admin->username}}</option>
-                                                                                @endforeach
-                                                                            </select>
-                                                                        </div>
+                                                <form class="form-valide" action="{{ route('activation')}}" method="POST">
+                                                    @csrf
+                                                    <div class="modal-body">
+                                                        <div class="col-xl-8 col-xxl-12 col-lg-6 col-sm-12">
+                                                            <div class="form-validation">
+                                                                <div class="form-group row">
+                                                                    <label class="col-lg-12 col-form-label" for="val-pas">To<span class="text-danger"></span></label>
+                                                                    <div class="col-lg-12">
+                                                                        <select class="js-select2 form-control" id="val-select2" name="receiver" style="width: 100%;" data-placeholder="Choose one..">
+                                                                            @foreach ( $admins as $admin )
+                                                                            <option value="{{ $admin->id}}">{{ $admin->username}}</option>
+                                                                            @endforeach
+                                                                        </select>
                                                                     </div>
+                                                                </div>
 
-                                                                    <div class="form-group row">
-                                                                        <label class="col-lg-12" for="val-text">Description<span class="text-danger"></span></label>
-                                                                        <div class="col-lg-12">
-                                                                            <textarea type="text" class="form-control" id="val-description" name="description" placeholder="enter description" cols="40" rows="10"></textarea>
-                                                                        </div>
+                                                                <div class="form-group row">
+                                                                    <label class="col-lg-12" for="val-text">Description<span class="text-danger"></span></label>
+                                                                    <div class="col-lg-12">
+                                                                        <textarea type="text" class="form-control" id="val-description" name="description" placeholder="enter description" cols="40" rows="10"></textarea>
                                                                     </div>
-                                                                    <div class="modal-footer">
-                                                                        <button type="submit" class="btn btn-secondary">submit</button>
-                                                                        <button type="button" class="btn btn-primary" data-dismiss="modal">close</button>
-                                                                    </div>
-                                                                    <div class="container">
-                                                                        @if (\Session:: has('success'))
-                                                                        div class ="alert alert-success">
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="submit" class="btn btn-secondary">submit</button>
+                                                                    <button type="button" class="btn btn-primary" data-dismiss="modal">close</button>
+                                                                </div>
+                                                                <div class="container">
+                                                                    @if (\Session:: has('success'))
+                                                                    <div class="alert alert-success">
                                                                         <p>{{\Session:: get('success')}}</p>
                                                                     </div>
                                                                     @endif
                                                                 </div>
+<<<<<<< .merge_file_zWOrde
 =======
                                                 <div class="col-lg-12 mb-4">
                                                     <div class="form-group">
@@ -231,21 +232,43 @@
                                                             <div class="card-title">
                                                                 <a data-toggle="modal" data-target=".bd-example-modal-lg2" href="javascript:void()" class="badge badge-warning"><span><i class="fa fa-pencil color-light"></i></span></a>
                                                                 <a href="javascript:void()" class="badge badge-danger sweet-confirm"><span><i class="fa fa-trash color-light"></i></span></a>
-                                                            </div>
-                                                            @endif
-                                                        </div>
-                                                        <div class="card-body">
+=======
 
+
+                                                                @if(Auth::user()->role == 1)
+                                                                <div class="card-title">
+                                                                    <a data-toggle="modal" data-target=".bd-example-modal-lg2" href="javascript:void()" class="badge badge-warning"><span><i class="fa fa-pencil color-light"></i></span></a>
+                                                                    <a href="javascript:void()" class="badge badge-danger sweet-confirm"><span><i class="fa fa-trash color-light"></i></span></a>
+                                                                </div>
+                                                                @endif
+>>>>>>> .merge_file_38IFBl
+                                                            </div>
+                                                            <div class="card-body">
+
+<<<<<<< .merge_file_zWOrde
                                                             {{-- <p class="card-text">{{ $plan->desciption}}</p> --}}
                                                             <a href="javascript:void()" class="btn btn-primary">Subscribe</a>
                                                         </div>
                                                         <div class="card-footer">
                                                             {{-- <p class="card-text text-dark">{{ $plan->price }}</p> --}}
                                                         </div>
+=======
+                                                                <p class="card-text">{{ $plan->desciption}}</p>
+                                                                <a href="javascript:void()" class="btn btn-primary">Subscribe</a>
+                                                            </div>
+                                                            <div class="card-footer">
+                                                                <p class="card-text text-dark">{{ $plan->price }}</p>
+                                                            </div>
+>>>>>>> .merge_file_38IFBl
 
+                                                        </div>
                                                     </div>
+<<<<<<< .merge_file_zWOrde
                                                 </div>
                                                 {{-- @endforeach --}}
+=======
+
+>>>>>>> .merge_file_38IFBl
                                             </div>
                                         </section>
                                         <h4>Payment</h4>
@@ -390,83 +413,7 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-lg-8">
-                        <div class="card">
-                            <div class="card-header">
-                                <h4 class="card-title">Yearly Transactions</h4>
-                            </div>
-                            <div class="card-body">
-                                <div class="table-responsive">
-                                    <table class="table mb-0">
-                                        <thead>
-                                            <tr>
-                                                <th>#</th>
-                                                <th>Plan</th>
-                                                <th>Month</th>
-                                                <th>Bank(a/c)</th>
-                                                <th>Amount</th>
-                                                <th>Status</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>
-                                                    <div class="round-img">
-                                                        <a href=""><img width="35" src="{{ asset('group/images/avatar/1.png') }}" alt=""></a>
-                                                    </div>
-                                                </td>
-                                                <td>Premium</td>
-                                                <td><span>January</span></td>
-                                                <td><span>3953 07 245 3498</span></td>
-                                                <td><span>500,000</span></td>
-                                                <td><span class="badge badge-success">Payed</span></td>
-                                            </tr>
-
-                                            <tr>
-                                                <td>
-                                                    <div class="round-img">
-                                                        <a href=""><img width="35" src="{{ asset('group/images/avatar/1.png') }}" alt=""></a>
-                                                    </div>
-                                                </td>
-                                                <td>Premium</td>
-                                                <td><span>January</span></td>
-                                                <td><span>3953 07 245 3498</span></td>
-                                                <td><span>500,000</span></td>
-                                                <td><span class="badge badge-success">Payed</span></td>
-                                            </tr>
-
-                                            <tr>
-                                                <td>
-                                                    <div class="round-img">
-                                                        <a href=""><img width="35" src="{{ asset('group/images/avatar/1.png') }}" alt=""></a>
-                                                    </div>
-                                                </td>
-                                                <td>Premium</td>
-                                                <td><span>January</span></td>
-                                                <td><span>3953 07 245 3498</span></td>
-                                                <td><span>500,000</span></td>
-                                                <td><span class="badge badge-warning">Pending</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <div class="round-img">
-                                                        <a href=""><img width="35" src="{{ asset('group/images/avatar/1.png') }}" alt=""></a>
-                                                    </div>
-                                                </td>
-                                                <td>Basic</td>
-                                                <td><span>May</span></td>
-                                                <td><span>-</span></td>
-                                                <td><span>500,000</span></td>
-                                                <td><span class="badge badge-danger">Not payed</span></td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-xl-4 col-xxl-6 col-lg-6 col-md-6 col-sm-12">
+                    <div class="col-xl-12 col-xxl-12 col-lg-12 col-md-4 col-sm-12">
                         <div class="card">
                             <div class="card-header">
                                 <h4 class="card-title">Todo</h4>
