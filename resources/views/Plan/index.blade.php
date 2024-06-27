@@ -43,7 +43,9 @@
                         </div>
                     </div>
                     <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+                        @if(Auth::user()->role == 1)
                         <a data-toggle="modal" data-target=".bd-example-modal-lg" href="javascript:void()" class="badge badge-primary"><span class="text-light"><i class="fa fa-plus color-light"></i></span></a>
+                        @endif
                     </div>
                 </div>
                 <div class="row">
@@ -57,8 +59,10 @@
                             <div class="card-header">
                                 <h5 class="card-title">{{$plan->name}}</h5>
                                 <div class="card-title">
+                                    @if(Auth::user()->role == 1)
                                     <a data-toggle="modal" data-target="#basicModal" href="javascript:void()" class="badge badge-warning"><span><i class="fa fa-pencil color-light"></i></span></a>
                                     <a href="javascript:void()" class="badge badge-danger sweet-confirm"><span><i class="fa fa-trash color-light"></i></span></a>
+                                    @endif
                                 </div>
                             </div>
                             <div class="card-body d-flex justify-center align-center" style="margin-left: 3rem;">

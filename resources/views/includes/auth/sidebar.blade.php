@@ -212,7 +212,7 @@
             <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i class="ti-settings"></i><span class="nav-text">Settings</span></a>
                 <ul aria-expanded="false">
                     <li><a href="javascript:void()">Fitness Centers</a></li>
-                    <li><a href="{{ url('pricing/plans')}}"">Plicing Plan</a></li>
+                    <li><a href="{{ url('pricing/plans')}}">Plicing Plan</a></li>
                     <!-- <li><a href=" {{ route('trainer.levels')}}">Levels</a></li>
                     <li><a href="{{ route('trainer.meal.planning')}}">Meal planning</a></li> -->
                     <li><a href=" {{  route('admin.user.promotion') }}">Promotion (RBAC)</a></li>
