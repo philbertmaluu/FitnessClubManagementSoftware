@@ -74,7 +74,8 @@ Route::post('/trainer/level/store', [TrainerController::class, 'levelStore'])->m
 Route::get('/trainee/calendar/schedule', [TraineeController::class, 'schedule'])->middleware(['auth', 'verified'])->name('trainer.schedule_calendar');
 
 Route::get('/trainer/dashboard', [TrainerController::class, 'index'])->name('trainer.home');
-Route::get('/trainer/activation/request', [TrainerController::class, 'activation_request'])->middleware(['auth', 'verified'])->name('trainer.request');
+Route::get('/trainer/activation/request', [TrainerController::class, 'index'])->middleware(['auth', 'verified'])->name('trainer.request');
+// Route::get('/trainer/index/dashboard',[TrainerController::class, 'index'])->middleware(['auth, verified'])->name('trainer.index');
 Route::post('/trainer/activation', [NotificationController::class, 'store'])->name('activation');
 Route::post('/trainer/schedule/store', [ScheduleController::class, 'store'])->middleware(['auth', 'verified'])->name('trainer.schedule.store');
 //-----------trainer meal plan routes--------------//
@@ -96,7 +97,9 @@ Route::get('/trainer/activation/cancel/{id}', [ActivationController::class, 'act
 Route::get('admin/settings/promotion', [AdminController::class, 'trainerPromotion'])->middleware(['auth', 'verified'])->name('admin.user.promotion');
 Route::get('admin/trainer/activation/requests', [TrainerController::class, 'activation_request'])->middleware(['auth', 'verified'])->name('trainer.request');
 Route::get('admin/calendar/schedule', [AdminController::class, 'schedule'])->middleware(['auth', 'verified'])->name('admin.calendar_schedule');
-
+Route::get('admin/Assets/dashboard',[adminController::class, 'assets'])->middleware(['auth','verified'])->name('admin.assets');
+Route::get('admin/Transaction/dashboard',[AdminController::class, 'Transaction'])->middleware(['auth','verified'])->name('admin.transaction');
+Route::post('admin/Asset/store', [AdminController::class, 'assetsstore'])->middleware(['auth','verified'])->name('asset.store');
 //------------------stripe payment intergration----------------------------//
 
 Route::get('/checkout', [StripeController::class, 'checkout'])->name('checkout');
