@@ -178,8 +178,8 @@
             <li class="nav-label">Assets management</li>
             <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i class="ti-crown"></i><span class="nav-text">Assets</span></a>
                 <ul aria-expanded="false">
-                    <li><a href="javascript:void()">Assets</a></li>
-                    <li><a href="javascript:void()">Vendor</a></li>
+                    <li><a href="{{route('admin.assets')}}">Assets</a></li>
+                    <li><a href="{{route('admin.transaction')}}">Transactions</a></li>
                 </ul>
             </li>
 

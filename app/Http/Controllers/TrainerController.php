@@ -11,18 +11,17 @@ use App\Models\suppliments;
 use SebastianBergmann\Type\TrueType;
 use Illuminate\Support\Facades\Auth;
 use App\Models\food;
+use Monolog\Level as MonologLevel;
 
 class TrainerController extends Controller
 {
-    public function index()
-    {
+    // public function request()
+    // {
 
-        // $user = Auth::user()->id;
-        // dd($user);
-        $levels = Level::all();
-        $admins = User::where('role', 1)->get();
-        return view('trainer.index', compact('admins', 'levels'));
-    }
+    //     // $user = Auth::user()->id;
+    //     // dd($user);
+    //     return view('trainer.Activation', compact('admins', 'levels'));
+    // }
 
     public function store(Request $request)
     {
@@ -30,15 +29,25 @@ class TrainerController extends Controller
 
     }
 
+    public function index()
 
-
-    public function activation_request()
     {
+        $levels = Level::all();
+        $admins = User::where('role', 1)->get();
 
-        $inactiveTrainers = Notification::where('is_active', 0)->get();
-
-        return view('trainer.requests', compact('inactiveTrainers'));
+    //    $user = Auth::user()->is_active == 1;
+    return view ('trainer.index', compact('admins', 'levels'));
     }
+
+
+
+    // public function Activation()
+    // {
+
+    //     $inactiveTrainers = Notification::where('is_active', 0)->get();
+
+    //     return view('trainer.requests', compact('inactiveTrainers'));
+    // }
 
 
     public function mealplanning()

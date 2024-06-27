@@ -11,9 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('suppliments', function (Blueprint $table) {
-            $table->string('foodimage')->nullable();
-            $table->integer('created_by');
+        Schema::create('assets', function (Blueprint $table) {
+            $table->id();
+            $table->string('assetname');
+            $table->integer('user_id');
+            $table->boolean('status')->default(0);
+            $table->timestamps();
         });
     }
 
@@ -22,9 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('suppliments', function (Blueprint $table) {
-            $table->dropColumn('foodimage');
-            $table->dropColumn('created_by');
-        });
+        Schema::dropIfExists('assets');
     }
 };

@@ -51,6 +51,10 @@
                                         <div class="external-event" data-class="bg-warning"><i class="fa fa-move"></i>Meet manager</div>
                                         <div class="external-event" data-class="bg-dark"><i class="fa fa-move"></i>Create New theme</div>
                                     </div>
+<<<<<<< .merge_file_85BmPD
+
+=======
+>>>>>>> .merge_file_eD1mF7
                                     <!-- checkbox -->
                                     <div class="checkbox checkbox-event pt-3 pb-5">
                                         <input id="drop-remove" class="styled-checkbox" type="checkbox">
@@ -77,7 +81,30 @@
                                 <div class="modal-header">
                                     <h4 class="modal-title"><strong>Add New Event</strong></h4>
                                 </div>
+<<<<<<< .merge_file_85BmPD
+{{-- <<<<<<< HEADc --}}
+                                <!----Content of the schedule activity starts here----->
+                                <div class="modal-body">
+                                    <form>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                            <label class="control-label">Category Name</label>
+                                            <input class="form-control form-white" placeholder="Enter name" type="text" name="category-name">
+                                           </div>
+                                        </div>
+                                    </form>
+
+                                </div>
+                                <!-----schedule acvtivity body ends here------------>
+                                <!-------footer starts here-------->
+{{-- ======= --}}
+                                <div class="modal-body">
+
+                                </div>
+{{-- >>>>>>> 51d5f80e6b93f35a68eeca9ca3ff9c8ea50a605b --}}
+=======
                                 <div class="modal-body"></div>
+>>>>>>> .merge_file_eD1mF7
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Close</button>
                                     <button type="button" class="btn btn-success save-event waves-effect waves-light">Create
