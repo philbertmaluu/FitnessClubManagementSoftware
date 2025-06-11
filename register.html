@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<head>
+    <title>Register - Fitness Planner</title>
+</head>
+<body>
+    <h2>Register</h2>
+    <form action="register.php" method="POST">
+        <label>Name:</label><br>
+        <input type="text" name="name" required><br><br>
+
+        <label>Email:</label><br>
+        <input type="email" name="email" required><br><br>
+
+        <label>Password:</label><br>
+        <input type="password" name="password" required><br><br>
+
+        <label>Role:</label><br>
+        <select name="role" required>
+            <option value="normal">Normal</option>
+            <option value="victim">Victim</option>
+        </select><br><br>
+
+        <botton type="submit">Register</botton>
+    </form>
+</body>
+</html>
+
